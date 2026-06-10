@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leonardo De la Hoz Borrego</title>
+<meta name="description" content="Sitio personal de Leonardo De la Hoz Borrego.">
+<meta name="theme-color" content="#15233f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#15233f;--night-2:#1c2e52;--gold:#c9a24b;--gold-soft:#e3c987;
+    --ivory:#f4efe4;--ivory-dim:#c4bdac;--line:rgba(201,162,75,.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:radial-gradient(130% 100% at 50% 0%, var(--night-2) 0%, var(--night) 55%, #0f1a31 100%);
+    background-attachment:fixed;color:var(--ivory);
+    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    padding:30px 18px;line-height:1.55;
+  }
+  .wrap{width:100%;max-width:420px;text-align:center;}
+  h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,9vw,42px);line-height:1.1;}
+  .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ivory-dim);margin:8px 0 6px;}
+  .tag{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);font-weight:600;}
+  .rule{width:44px;height:1px;background:var(--gold);margin:26px auto;opacity:.8;}
+  .links{display:flex;flex-direction:column;gap:10px;}
+  .card{
+    display:block;text-decoration:none;text-align:left;
+    border:1px solid var(--line);border-radius:5px;padding:16px 18px;
+    background:rgba(255,255,255,.02);transition:border-color .15s ease,background .15s ease;
+  }
+  .card:hover{border-color:rgba(201,162,75,.5);background:rgba(255,255,255,.04);}
+  .card:focus-visible{outline:2px solid var(--ivory);outline-offset:3px;}
+  .card b{display:block;color:var(--ivory);font-size:15px;font-weight:500;margin-bottom:2px;}
+  .card span{font-size:12.5px;color:var(--ivory-dim);}
+  footer{margin-top:30px;font-size:11.5px;color:var(--ivory-dim);letter-spacing:.04em;}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="tag">Colombia · Estonia</p>
+    <h1>Leonardo De la Hoz Borrego</h1>
+    <p class="sub">Tecnología educativa, sostenibilidad y puentes entre dos mundos.</p>
+    <div class="rule" aria-hidden="true"></div>
+    <nav class="links" aria-label="Contenido">
+      <a class="card" href="grado.html">
+        <b>🎓 Graduación · Maestría en Tecnología Educativa</b>
+        <span>Universidad de Tartu, Estonia — 18 de junio de 2026</span>
+      </a>
+    </nav>
+    <footer>© 2026 Leonardo De la Hoz Borrego</footer>
+  </main>
+</body>
+</html>
