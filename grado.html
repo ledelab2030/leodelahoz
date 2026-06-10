@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Me gradúo · Universidad de Tartu</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="🎓 Me gradúo — Maestría en Tecnología Educativa">
+<meta property="og:description" content="Universidad de Tartu, Estonia · Jueves 18 de junio · 12:00 Tartu / 4:00 a.m. Colombia. Acompáñame en vivo.">
+<meta property="og:locale" content="es_CO">
+<meta name="description" content="Invitación a la ceremonia de graduación de Leonardo De la Hoz — Universidad de Tartu, 18 de junio de 2026.">
+<meta name="theme-color" content="#15233f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#15233f;
+    --night-2:#1c2e52;
+    --gold:#c9a24b;
+    --gold-soft:#e3c987;
+    --ivory:#f4efe4;
+    --ivory-dim:#c4bdac;
+    --line:rgba(201,162,75,.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:radial-gradient(130% 100% at 50% 0%, var(--night-2) 0%, var(--night) 55%, #0f1a31 100%);
+    background-attachment:fixed;
+    color:var(--ivory);
+    padding:30px 16px 48px;
+    line-height:1.55;
+  }
+  .wrap{width:100%;max-width:440px;margin:0 auto;}
+
+  .hero{
+    border:1px solid rgba(201,162,75,.35);
+    border-radius:6px;padding:42px 30px 36px;text-align:center;position:relative;
+    background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.06));
+    box-shadow:0 24px 60px -30px rgba(0,0,0,.7);
+  }
+  .hero::before{content:"";position:absolute;inset:9px;border:1px solid rgba(201,162,75,.16);border-radius:3px;pointer-events:none;}
+  .eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-soft);font-weight:600;margin-bottom:18px;}
+  .seal{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.16em;color:var(--ivory-dim);margin-bottom:16px;}
+  h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,12vw,52px);line-height:1.02;margin-bottom:12px;}
+  h1 .accent{color:var(--gold-soft);font-style:italic;}
+  .program{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--ivory-dim);}
+  .place{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ivory-dim);margin-top:4px;}
+  .rule{width:44px;height:1px;background:var(--gold);margin:24px auto;opacity:.8;}
+  .invite{font-size:14px;max-width:300px;margin:0 auto 24px;}
+  .when{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--gold-soft);}
+  .times{font-size:13px;color:var(--ivory-dim);margin:4px 0 26px;}
+  .times b{color:var(--ivory);font-weight:600;}
+  .btn{
+    display:inline-block;text-decoration:none;
+    background:linear-gradient(180deg,var(--gold-soft),var(--gold));
+    color:#1a1305;font-weight:600;font-size:15px;letter-spacing:.02em;
+    padding:14px 28px;border-radius:4px;
+    transition:transform .15s ease, box-shadow .15s ease;
+    box-shadow:0 10px 24px -10px rgba(201,162,75,.7);
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(201,162,75,.8);}
+  .btn:focus-visible{outline:2px solid var(--ivory);outline-offset:3px;}
+  .foot{margin-top:14px;font-size:11.5px;color:var(--ivory-dim);letter-spacing:.04em;}
+
+  .explore-label{
+    text-align:center;font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--gold-soft);font-weight:600;margin:40px 0 16px;
+  }
+  details{
+    border:1px solid var(--line);border-radius:5px;margin-bottom:10px;overflow:hidden;
+    background:rgba(255,255,255,.015);
+  }
+  details[open]{border-color:rgba(201,162,75,.45);background:rgba(255,255,255,.03);}
+  summary{
+    list-style:none;cursor:pointer;
+    display:flex;align-items:center;gap:14px;
+    padding:17px 18px;
+  }
+  summary::-webkit-details-marker{display:none;}
+  .num{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold);min-width:20px;}
+  .sum-title{flex:1;font-size:15px;font-weight:500;color:var(--ivory);}
+  .chev{width:9px;height:9px;border-right:1.5px solid var(--gold-soft);border-bottom:1.5px solid var(--gold-soft);transform:rotate(45deg);transition:transform .2s ease;margin-right:4px;}
+  details[open] .chev{transform:rotate(-135deg);}
+  .body{padding:0 18px 20px 52px;font-size:13.5px;color:var(--ivory-dim);}
+  .body p{margin-bottom:10px;}
+  .body strong{color:var(--ivory);font-weight:600;}
+  .body ul{list-style:none;margin-top:4px;}
+  .body li{position:relative;padding-left:16px;margin-bottom:8px;}
+  .body li::before{content:"—";position:absolute;left:0;color:var(--gold);}
+  .body li b{color:var(--ivory);font-weight:600;}
+  .more{
+    display:inline-block;margin-top:6px;text-decoration:none;
+    font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+    color:var(--gold-soft);border-bottom:1px solid var(--line);padding-bottom:2px;
+    transition:color .15s ease,border-color .15s ease;
+  }
+  .more:hover{color:var(--ivory);border-color:var(--gold-soft);}
+  .more:focus-visible{outline:2px solid var(--ivory);outline-offset:3px;}
+
+  .signoff{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--ivory-dim);margin-top:34px;}
+
+  @media (prefers-reduced-motion: reduce){
+    .btn,.chev{transition:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <main class="hero">
+    <p class="eyebrow">Graduación · Maestría</p>
+    <p class="seal">— Universidad de Tartu, Estonia —</p>
+    <h1>Me <span class="accent">gradúo</span></h1>
+    <p class="program">Maestría en Tecnología Educativa</p>
+    <p class="place">Institute of Education</p>
+
+    <div class="rule" aria-hidden="true"></div>
+
+    <p class="invite">Familia, quiero compartir este momento con ustedes. Acompáñenme en vivo desde donde estén.</p>
+
+    <p class="when">Jueves 18 de junio, 2026</p>
+    <p class="times"><b>12:00</b> en Tartu &nbsp;·&nbsp; <b>4:00 a.m.</b> en Colombia</p>
+
+    <a class="btn" href="https://www.uttv.ee/esileht" target="_blank" rel="noopener">Ver la ceremonia en vivo</a>
+    <p class="foot">Transmisión por UTTV · con audio en inglés</p>
+  </main>
+
+  <p class="explore-label">Para conocer un poco más</p>
+
+  <details>
+    <summary><span class="num">I</span><span class="sum-title">La Universidad de Tartu</span><span class="chev" aria-hidden="true"></span></summary>
+    <div class="body">
+      <p>Fundada en <strong>1632</strong>, es la universidad más antigua y grande de Estonia, y la mejor clasificada de los países bálticos: está dentro del <strong>1% de las mejores del mundo</strong>.</p>
+      <p>Tartu es conocida como la "capital estudiantil" del país. Estudiar aquí fue un verdadero privilegio académico.</p>
+      <a class="more" href="https://ut.ee/en" target="_blank" rel="noopener">Conocer la universidad ↗</a>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">II</span><span class="sum-title">Estonia</span><span class="chev" aria-hidden="true"></span></summary>
+    <div class="body">
+      <p>Un país pequeño del norte de Europa (1,3 millones de personas) que se volvió <strong>pionero digital</strong>: aquí nacieron Skype, Wise y Bolt, y casi todo el Estado funciona en línea.</p>
+      <p>Más de la mitad de su territorio es bosque, algo que conecta directamente con mi trabajo. Soy <strong>e-residente</strong> de Estonia.</p>
+      <a class="more" href="https://e-estonia.com" target="_blank" rel="noopener">Descubrir Estonia digital ↗</a>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">III</span><span class="sum-title">Mi investigación</span><span class="chev" aria-hidden="true"></span></summary>
+    <div class="body">
+      <p>Mi tesis estudió a <strong>jÁvIer</strong>, un asistente de inteligencia artificial que diseñé para ayudar a padres y madres a reflexionar sobre hábitos de salud y sostenibilidad en familia.</p>
+      <p>La idea central: usar la IA como una herramienta que <strong>amplía nuestro pensamiento, no que lo reemplaza</strong>.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">IV</span><span class="sum-title">Por qué esta maestría me importa</span><span class="chev" aria-hidden="true"></span></summary>
+    <div class="body">
+      <p>Más allá del título, me dio una forma rigurosa de pensar sobre cómo la tecnología puede ayudar a las personas a <strong>aprender y decidir mejor, sin perder lo humano</strong>.</p>
+      <p>Es la base que sostiene todo lo que quiero construir de aquí en adelante.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">V</span><span class="sum-title">Lo que sigue</span><span class="chev" aria-hidden="true"></span></summary>
+    <div class="body">
+      <p>Estoy desarrollando el <strong>jÁvIer Institute</strong> como espacio de investigación y quiero presentar mi trabajo en conferencias internacionales.</p>
+      <p>También seguir tendiendo puentes entre Estonia y América Latina. Día a día, con un plan general.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">VI</span><span class="sum-title">Cómo se conecta con mi trabajo</span><span class="chev" aria-hidden="true"></span></summary>
+    <div class="body">
+      <p>He dedicado buena parte de mi vida a los <strong>productos químicos</strong>, sobre todo a la protección de la madera. Esta maestría une ese camino con todo lo demás bajo un mismo hilo: ayudar a las <strong>comunidades de cada uno de mis negocios a cambiar hábitos</strong> para mejor.</p>
+      <ul>
+        <li><b>Productos químicos y sostenibilidad</b>: cuidar la madera y el entorno de forma más responsable.</li>
+        <li><b>Tecnología e IA</b> (IntegrAl, jÁvIer): el corazón de la investigación.</li>
+        <li><b>Salud y bienestar digital</b> (be360 / Vita): poner la IA al servicio del cuidado de las personas.</li>
+        <li><b>Estonia–América Latina</b> (Cámara Estonia–Colombia, Flex84): el puente que esta experiencia hace posible.</li>
+        <li><b>Consultoría y adopción de IA</b>: ayudar a otros a usar la IA con criterio.</li>
+        <li><b>Investigación y educación aplicada</b> (jÁvIer Institute): donde todo se vuelve conocimiento compartido.</li>
+      </ul>
+      <p>A las personas de cada una de estas comunidades las quiero <strong>invitar a participar</strong>: en estudios de investigación, en capacitaciones sobre uso de IA y en hábitos de salud y bienestar, todo conectado con lo que viven cada día.</p>
+    </div>
+  </details>
+
+  <p class="signoff">Gracias por acompañarme. — Leonardo</p>
+
+</div>
+</body>
+</html>
