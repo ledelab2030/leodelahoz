@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perfil maestro — Leonardo De La Hoz Borrego</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#16181d; --muted:#63697a;
+  --line:#e2e5ec; --accent:#1f5fd6; --accent-soft:#e8f0fe;
+  --warn:#b45309; --warn-bg:#fff7ed; --warn-line:#fdba74;
+  --ok:#0f7a4d; --ok-bg:#ecfdf3; --ok-line:#86dbaf;
+  --gap:#b91c1c; --gap-bg:#fef2f2; --gap-line:#fca5a5;
+  --code-bg:#f4f6fa;
+  --radius:10px;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0f1115; --panel:#171a21; --ink:#e8eaf0; --muted:#9aa2b5;
+    --line:#282d38; --accent:#6ea0ff; --accent-soft:#1a2740;
+    --warn:#fbbf24; --warn-bg:#2a2110; --warn-line:#7c5a12;
+    --ok:#5fd39b; --ok-bg:#112620; --ok-line:#1f5c43;
+    --gap:#fca5a5; --gap-bg:#2b1517; --gap-line:#7f2f2f;
+    --code-bg:#11141a;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+     font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+.wrap{display:flex;align-items:flex-start;max-width:1500px;margin:0 auto}
+aside{position:sticky;top:0;height:100vh;flex:0 0 274px;overflow-y:auto;
+      background:var(--panel);border-right:1px solid var(--line);padding:20px 16px 60px}
+main{flex:1 1 auto;min-width:0;padding:28px 34px 120px}
+@media (max-width:900px){
+  .wrap{display:block}
+  aside{position:static;height:auto;width:100%;border-right:0;border-bottom:1px solid var(--line)}
+  main{padding:20px 16px 80px}
+}
+
+.brand{font-weight:700;font-size:15px;letter-spacing:-.01em;margin:0 0 2px}
+.brand small{display:block;font-weight:400;color:var(--muted);font-size:12px;letter-spacing:0}
+#q{width:100%;margin:14px 0 6px;padding:9px 11px;border:1px solid var(--line);
+   border-radius:8px;background:var(--bg);color:var(--ink);font-family:inherit;font-size:14px}
+#q:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:transparent}
+.hint{font-size:11.5px;color:var(--muted);margin:0 0 14px}
+nav a{display:block;padding:6px 9px;border-radius:7px;color:var(--muted);
+      text-decoration:none;font-size:13.5px}
+nav a:hover{background:var(--accent-soft);color:var(--accent)}
+nav a.sub{padding-left:22px;font-size:12.5px}
+.langbar{display:flex;gap:6px;margin:12px 0 16px}
+.langbar button{flex:1;padding:6px 4px;font:inherit;font-size:12.5px;cursor:pointer;
+  border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:7px}
+.langbar button.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+
+h1{font-size:26px;letter-spacing:-.02em;margin:0 0 6px}
+h2{font-size:19px;letter-spacing:-.01em;margin:38px 0 14px;padding-bottom:8px;
+   border-bottom:1px solid var(--line);scroll-margin-top:16px}
+h3{font-size:15px;margin:22px 0 8px}
+p{margin:0 0 10px}
+a{color:var(--accent)}
+.lede{color:var(--muted);margin:0 0 22px;max-width:70ch}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+      padding:16px 18px;margin:0 0 14px}
+.card > h3:first-child{margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:14px}
+.grid .card{margin:0}
+
+dl.kv{display:grid;grid-template-columns:minmax(120px,auto) 1fr;gap:5px 16px;margin:0}
+dl.kv dt{color:var(--muted);font-size:13px}
+dl.kv dd{margin:0;word-break:break-word}
+ul.tight{margin:6px 0 0;padding-left:18px}
+ul.tight li{margin-bottom:5px}
+
+.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.03em;
+     text-transform:uppercase;padding:2px 7px;border-radius:20px;vertical-align:middle}
+.t-ok{background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok-line)}
+.t-warn{background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn-line)}
+.t-gap{background:var(--gap-bg);color:var(--gap);border:1px solid var(--gap-line)}
+.t-es,.t-en{background:var(--accent-soft);color:var(--accent);border:1px solid transparent}
+
+.gap{background:var(--gap-bg);border:1px solid var(--gap-line);border-left:4px solid var(--gap);
+     border-radius:8px;padding:10px 13px;margin:10px 0;font-size:13.5px;color:var(--ink)}
+.gap b{color:var(--gap)}
+.gap::before{content:"⚠︎ FALTA CONFIRMAR — ";font-weight:700;color:var(--gap);letter-spacing:.02em}
+
+.alert{background:var(--warn-bg);border:1px solid var(--warn-line);border-left:4px solid var(--warn);
+       border-radius:8px;padding:12px 15px;margin:14px 0;font-size:14px}
+.alert h4{margin:0 0 6px;font-size:14px;color:var(--warn);letter-spacing:.01em}
+.alert p:last-child{margin-bottom:0}
+
+.blk{border:1px solid var(--line);border-radius:9px;margin:12px 0;overflow:hidden;background:var(--panel)}
+.blk-head{display:flex;align-items:center;gap:9px;padding:8px 11px;background:var(--bg);
+          border-bottom:1px solid var(--line);flex-wrap:wrap}
+.blk-title{font-size:13px;font-weight:600;flex:1 1 auto;min-width:120px}
+.blk-meta{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;font-family:var(--mono)}
+.copy{font:inherit;font-size:12px;font-weight:600;padding:4px 12px;cursor:pointer;
+      border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:6px}
+.copy:hover{border-color:var(--accent);color:var(--accent)}
+.copy.done{background:var(--ok-bg);border-color:var(--ok-line);color:var(--ok)}
+.blk pre{margin:0;padding:13px 15px;white-space:pre-wrap;word-wrap:break-word;
+         font-family:var(--mono);font-size:12.8px;line-height:1.62;background:var(--code-bg);color:var(--ink)}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600}
+tbody tr:hover{background:var(--bg)}
+.tbl-scroll{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
+td.prio{font-weight:700;text-align:center;font-family:var(--mono)}
+code{font-family:var(--mono);font-size:12.5px;background:var(--code-bg);padding:1px 5px;border-radius:4px}
+
+.noresult{display:none;padding:20px;text-align:center;color:var(--muted)}
+body.searching h2{display:none}
+body.searching .no-search{display:none}
+footer{margin-top:50px;padding-top:16px;border-top:1px solid var(--line);
+       font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<aside>
+  <p class="brand">Perfil maestro<small>Leonardo De La Hoz Borrego</small></p>
+  <input id="q" type="search" placeholder="Buscar en todo el documento…" autocomplete="off">
+  <p class="hint">Filtra tarjetas y bloques al escribir. Esc para limpiar.</p>
+
+  <div class="langbar" role="group" aria-label="Idioma">
+    <button data-lang="all" class="on">Ambos</button>
+    <button data-lang="es">ES</button>
+    <button data-lang="en">EN</button>
+  </div>
+
+  <nav>
+    <a href="#estado">⚑ Estado y prioridades</a>
+    <a href="#identidad">1. Identidad base</a>
+    <a href="#bios">2. Bios</a>
+    <a href="#bios" class="sub">50 · 100 · 250 · larga</a>
+    <a href="#formacion">3. Formación e investigación</a>
+    <a href="#grants">4. Grants, patentes, programas</a>
+    <a href="#grants" class="sub">Las 3 patentes ★</a>
+    <a href="#grants" class="sub">Asesoría a terceros</a>
+    <a href="#empresas">5. Emprendimiento</a>
+    <a href="#be360" class="sub">be360 ★</a>
+    <a href="#plataformas">6. Bloques por plataforma</a>
+    <a href="#p-orcid" class="sub">ORCID ★</a>
+    <a href="#p-etis" class="sub">ETIS.ee</a>
+    <a href="#p-linkedin" class="sub">LinkedIn</a>
+    <a href="#p-web" class="sub">delahozborrego.com</a>
+    <a href="#p-x" class="sub">X (@leodelahozb)</a>
+    <a href="#p-fb" class="sub">Facebook</a>
+    <a href="#p-ig" class="sub">Instagram</a>
+    <a href="#p-rg" class="sub">ResearchGate</a>
+    <a href="#p-wos" class="sub">Web of Science</a>
+    <a href="#p-cb" class="sub">Crunchbase</a>
+    <a href="#p-torre" class="sub">Torre</a>
+    <a href="#p-gen" class="sub">GEN</a>
+    <a href="#p-f6s" class="sub">F6S</a>
+    <a href="#checklist">7. Checklist por plataforma</a>
+    <a href="#huecos">8. Todo lo que falta</a>
+  </nav>
+</aside>
+
+<main>
+<h1>Perfil maestro — Leonardo De La Hoz Borrego</h1>
+<p class="lede no-search">Fuente única de verdad. De aquí salen los textos para cada plataforma; nada se
+edita directamente en las plataformas sin actualizar antes este archivo. Un solo archivo, editado en sitio.</p>
+
+<div id="noresult" class="noresult">Sin resultados para esa búsqueda.</div>
+
+<div class="alert">
+  <h4>Este documento es privado, no un perfil público</h4>
+  <p>Es la herramienta de trabajo desde donde salen los textos para cada plataforma — con huecos,
+  decisiones pendientes y datos sensibles (estado real de patentes, conversaciones no formalizadas)
+  que no deben quedar expuestos a cualquiera. Cuando <code>delahozborrego.com</code> tenga control de
+  acceso (Cloudflare Access), este archivo completo va detrás de login — lo público es el
+  <code>index.html</code> de portada y, como mucho, la bio larga ya cerrada de <a href="#bios">§2</a>.</p>
+</div>
+
+<!-- ================= ESTADO ================= -->
+<h2 id="estado">⚑ Estado y prioridades</h2>
+
+<div class="alert">
+  <h4>Corrección importante — 1 ago 2026</h4>
+  <p>La revisión del correo <code>leonardo@ledelab.group</code> cambió dos cosas del punto de partida:</p>
+  <p><b>1. No hay una patente, hay tres.</b> Fuiste beneficiario de «Crearlo No Es Suficiente 2.0» en
+  <b>tres procesos independientes</b> (IDs 882, 1052 y 1106), con tres solicitudes distintas radicadas
+  y publicadas en 2022. Detalle en <a href="#grants">§4</a>.</p>
+  <p><b>2. Dos de las tres fueron negadas por la SIC a finales de 2025</b>, por no atender el examen de
+  patentabilidad. Esto obliga a redactar las bios en pasado y sobre el <i>grant</i>, no sobre una patente
+  viva. Los bloques de este documento ya están escritos así.</p>
+  <p><b>3. El trabajo sobre educación vial en Barranquilla no es tuyo</b> y se retiró del documento.
+  Era un paper descargado como referencia. Ver <a href="#formacion">§3</a>.</p>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h3>Prioridad #1 — ORCID</h3>
+    <p>ORCID <b>0009-0006-0542-5296</b> está <b>completamente vacío</b>. Creado vía institución en
+    oct-2024, con el <b>email sin verificar</b>. Sin verificar el email no se puede editar ni enlazar
+    a Web of Science / ETIS.</p>
+    <p style="margin:0"><span class="tag t-gap">bloqueado</span> Verificar email → luego cargar los bloques de <a href="#p-orcid">§6 ORCID</a>.</p>
+  </div>
+  <div class="card">
+    <h3>Prioridad #2 — decidir qué se dice de las patentes</h3>
+    <p>Es una decisión tuya y afecta a las 13 plataformas: con dos solicitudes negadas, ¿se mencionan
+    las tres como hito histórico del grant, se menciona solo la que sigue viva, o se omiten?</p>
+    <p style="margin:0"><span class="tag t-warn">decisión</span> Mi propuesta por defecto está en <a href="#grants">§4</a>.</p>
+  </div>
+  <div class="card">
+    <h3>Prioridad #3 — ETIS.ee</h3>
+    <p>No aparece perfil. Hay que entrar con ID estonio / e-Residencia y comprobar si existe un
+    registro creado por la Universidad de Tartu al matricularte, o si hay que crearlo de cero.</p>
+    <p style="margin:0"><span class="tag t-warn">verificar</span> Con la conversación EUAS abierta, un ETIS vivo pesa.</p>
+  </div>
+  <div class="card">
+    <h3>Prioridad #4 — coherencia de titulación</h3>
+    <p>El MA de Tartu (grado 18-jun-2026) ya es firme y todavía no está reflejado en LinkedIn,
+    ResearchGate, Torre ni la web. Es el cambio de estado más visible del año.</p>
+    <p style="margin:0"><span class="tag t-warn">desactualizado</span> Ver <a href="#checklist">§7</a>.</p>
+  </div>
+</div>
+
+<!-- ================= 1. IDENTIDAD ================= -->
+<h2 id="identidad">1. Identidad base</h2>
+
+<div class="grid">
+  <div class="card">
+    <h3>Nombre e identificadores</h3>
+    <dl class="kv">
+      <dt>Nombre público</dt><dd>Leonardo De La Hoz Borrego</dd>
+      <dt>Nombre legal</dt><dd>Leonardo Javier De la Hoz Borrego <span class="tag t-ok">verificado</span><br>
+        <span style="color:var(--muted);font-size:12.5px">forma usada por TM Tamayo y la SIC en los expedientes de patente</span></dd>
+      <dt>Forma de cita</dt><dd>De La Hoz Borrego, L. J.</dd>
+      <dt>Variantes en uso</dt><dd>Leonardo De la Hoz · Leonardo DelaHoz Borrego · Leonardo de la Hoz Borrego</dd>
+      <dt>ORCID</dt><dd><a href="https://orcid.org/0009-0006-0542-5296">0009-0006-0542-5296</a> <span class="tag t-gap">vacío</span></dd>
+      <dt>WoS ResearcherID</dt><dd>MRJ-2286-2025 <span class="tag t-ok">alta 14-mar-2025</span></dd>
+      <dt>ETIS.ee</dt><dd>Sin perfil localizado <span class="tag t-gap">verificar</span></dd>
+    </dl>
+    <div class="gap">Hay que elegir <b>una forma canónica</b> y usarla idéntica en las 13 plataformas.
+    Recomendación: <b>Leonardo De La Hoz Borrego</b> en perfiles públicos (es la de ResearchGate y
+    Crunchbase) y <b>Leonardo Javier De la Hoz Borrego</b> solo donde el nombre deba coincidir con
+    documentos legales. Confirmar.</div>
+  </div>
+
+  <div class="card">
+    <h3>Ubicaciones y contacto</h3>
+    <dl class="kv">
+      <dt>Bases</dt><dd>Barranquilla, Colombia ↔ Tallinn / Tartu, Estonia</dd>
+      <dt>Email principal</dt><dd>leonardo@ledelab.group</dd>
+      <dt>Teléfono</dt><dd>+57 305 404 5990 <span class="tag t-warn">¿público?</span></dd>
+      <dt>Estatus EE</dt><dd>e-Resident de Estonia</dd>
+      <dt>Empresa EE</dt><dd>LedeLab Group OÜ — reg. 14513358, Tallinn</dd>
+      <dt>Web personal</dt><dd><a href="https://delahozborrego.com">delahozborrego.com</a></dd>
+      <dt>Web corporativa</dt><dd><a href="https://ledelab.group">ledelab.group</a></dd>
+    </dl>
+    <div class="gap">El teléfono aparece en tu firma de correo desde 2022, pero <b>decide si va en perfiles
+    públicos</b>. Faltan también: <b>email académico</b> de la Universidad de Tartu (¿sigue activo? es
+    probablemente el que cuelga del ORCID sin verificar) y <b>dirección postal</b> de LedeLab Group OÜ
+    para los formularios que la piden.</div>
+  </div>
+
+  <div class="card">
+    <h3>Idiomas</h3>
+    <dl class="kv">
+      <dt>Español</dt><dd>Nativo</dd>
+      <dt>Inglés</dt><dd>Profesional — MA y MBA cursados en inglés</dd>
+      <dt>Alemán</dt><dd>? <span style="color:var(--muted);font-size:12.5px">(tus correos de 2022 salían con cliente en alemán: «schrieb am», «Am … um»)</span></dd>
+      <dt>Italiano</dt><dd>?</dd>
+      <dt>Estonio</dt><dd>?</dd>
+    </dl>
+    <div class="gap">Confirmar <b>niveles reales (MCER)</b> y cuáles se declaran. Lo del alemán es un indicio
+    de la configuración de tu cliente de correo, no una prueba de que lo hables: dímelo tú.</div>
+  </div>
+
+  <div class="card">
+    <h3>Handles y perfiles vivos</h3>
+    <dl class="kv">
+      <dt>LinkedIn</dt><dd>linkedin.com/in/leonardodelahoz</dd>
+      <dt>X</dt><dd>@leodelahozb</dd>
+      <dt>Facebook</dt><dd>facebook.com/leonardodelahozb</dd>
+      <dt>Instagram</dt><dd><span class="tag t-gap">handle sin confirmar</span></dd>
+      <dt>ResearchGate</dt><dd>researchgate.net/profile/Leonardo-De-La-Hoz-Borrego</dd>
+      <dt>Crunchbase</dt><dd>crunchbase.com/person/leonardo-de-la-hoz-borrego</dd>
+      <dt>Torre</dt><dd>torre.ai/leonardodelahozborrego</dd>
+      <dt>GEN</dt><dd>genglobal.org/user/ledelab</dd>
+      <dt>F6S</dt><dd><span class="tag t-gap">URL exacta sin confirmar</span></dd>
+      <dt>Padlet</dt><dd><span class="tag t-gap">URL exacta sin confirmar</span></dd>
+    </dl>
+  </div>
+</div>
+
+<!-- ================= 2. BIOS ================= -->
+<h2 id="bios">2. Bios</h2>
+<p class="lede no-search">Cuatro longitudes, cada una en ES y EN. El contador de palabras y caracteres
+es automático. Todas las menciones a las patentes están redactadas en pasado y sobre el grant, no sobre
+un derecho vigente — ver <a href="#grants">§4</a>.</p>
+
+<h3>Bio 50 palabras — presentaciones, pies de firma, tarjetas de ponente</h3>
+
+<div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> Bio 50 · español</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Leonardo De La Hoz Borrego es tecnólogo educativo y emprendedor entre Barranquilla y Tallinn. Máster en Tecnología Educativa por la Universidad de Tartu y MBA en Gestión de la Transición Sostenible por Bologna Business School. Funda y dirige LedeLab Group OÜ, con proyectos de IA conversacional aplicada a la salud, bioprotección y medios independientes.</pre></div>
+
+<div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> Bio 50 · English</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>Leonardo De La Hoz Borrego is an educational technologist and entrepreneur working between Barranquilla and Tallinn. He holds an MA in Educational Technology from the University of Tartu and an MBA in Sustainability Transition Management from Bologna Business School. He founded LedeLab Group OÜ, spanning conversational AI for health, bioprotection and independent media.</pre></div>
+
+<h3>Bio 100 palabras — perfiles de plataforma, notas de prensa cortas</h3>
+
+<div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> Bio 100 · español</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Leonardo De La Hoz Borrego trabaja en el cruce entre tecnología educativa, IA conversacional y emprendimiento sostenible, con base entre Barranquilla (Colombia) y Tallinn/Tartu (Estonia).
+
+Es Máster en Tecnología Educativa por la Universidad de Tartu, con una tesis sobre una intervención basada en GPT para apoyar la conciencia parental sobre salud y sostenibilidad familiar. Suma un MBA en Gestión de la Transición Sostenible por Bologna Business School y formación de base en ingeniería.
+
+Como fundador de LedeLab Group OÜ (Tallinn), articula un portafolio asset-light entre Estonia y América Latina: salud conductual con IA, bioprotección de materiales y medios de información neutral.</pre></div>
+
+<div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> Bio 100 · English</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>Leonardo De La Hoz Borrego works at the intersection of educational technology, conversational AI and sustainability-driven entrepreneurship, based between Barranquilla (Colombia) and Tallinn/Tartu (Estonia).
+
+He holds an MA in Educational Technology from the University of Tartu, with a thesis on a GPT-powered intervention supporting parental awareness of family health and sustainability. He also holds an MBA in Sustainability Transition Management from Bologna Business School and an engineering background.
+
+As founder of LedeLab Group OÜ (Tallinn), he runs an asset-light portfolio bridging Estonia and Latin America: AI-assisted behavioural health, materials bioprotection and neutral independent media.</pre></div>
+
+<h3>Bio 250 palabras — dossier, aplicaciones a programas, páginas "about"</h3>
+
+<div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> Bio 250 · español</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Leonardo De La Hoz Borrego es tecnólogo educativo, investigador y emprendedor. Opera entre Barranquilla (Colombia) y Tallinn/Tartu (Estonia), y su trabajo conecta ambos ecosistemas: lo que en Europa es infraestructura digital madura, en América Latina es todavía problema abierto, y al revés.
+
+Es Máster en Tecnología Educativa por la Universidad de Tartu (2026). Su tesis, «Reflecting on Health and Sustainability: A GPT-powered Intervention to Support Parental Awareness and Family Well-being», diseñó y evaluó una intervención basada en IA generativa para provocar reflexión en madres y padres sobre salud y sostenibilidad familiar. Antes obtuvo un MBA en Gestión de la Transición Sostenible por Bologna Business School (2021), sobre una formación de base en ingeniería.
+
+Su trabajo tiene también salida industrial. Fue beneficiario, en tres procesos independientes, de la convocatoria nacional «Crearlo No Es Suficiente 2.0» del Ministerio de Ciencia, Tecnología e Innovación de Colombia, operada por la Corporación Tecnnova UEE y la Red JOINN. De ese acompañamiento resultaron tres solicitudes de patente radicadas y publicadas en 2022 ante la Superintendencia de Industria y Comercio, en campos que van del tratamiento biocida de madera a los sistemas de integración social y emprendimiento comunitario.
+
+Como fundador de LedeLab Group OÜ (Tallinn), dirige un portafolio asset-light: be360, salud conductual con IA conversacional en entornos educativos; CamIlA y DelaVent, agentes conversacionales modulares; la línea de bioprotección de madera de I+DE SAS y ADIMAT, apoyada en tres décadas de Grupo Protemad; y dos medios de información neutral, CONoticias Neutrales y EENeutral News. Es e-Resident de Estonia.</pre></div>
+
+<div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> Bio 250 · English</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>Leonardo De La Hoz Borrego is an educational technologist, researcher and entrepreneur. He operates between Barranquilla (Colombia) and Tallinn/Tartu (Estonia), and his work connects both ecosystems: what is mature digital infrastructure in Europe is still an open problem in Latin America, and vice versa.
+
+He holds an MA in Educational Technology from the University of Tartu (2026). His thesis, "Reflecting on Health and Sustainability: A GPT-powered Intervention to Support Parental Awareness and Family Well-being", designed and evaluated a generative-AI intervention prompting parents to reflect on family health and sustainability. He previously earned an MBA in Sustainability Transition Management from Bologna Business School (2021), on an engineering foundation.
+
+His work also reaches industry. He was a beneficiary, across three separate processes, of the national call "Crearlo No Es Suficiente 2.0" run by Colombia's Ministry of Science, Technology and Innovation and operated by Corporación Tecnnova UEE and Red JOINN. That programme produced three patent applications filed and published in 2022 before Colombia's Superintendency of Industry and Commerce, spanning fields from biocidal wood treatment to systems for social integration and community entrepreneurship.
+
+As founder of LedeLab Group OÜ (Tallinn), he leads an asset-light portfolio: be360, behavioural health through conversational AI in educational settings; CamIlA and DelaVent, modular conversational agents; the wood-bioprotection line of I+DE SAS and ADIMAT, built on three decades of Grupo Protemad; and two neutral news outlets, CONoticias Neutrales and EENeutral News. He is an Estonian e-Resident.</pre></div>
+
+<h3>Bio larga — web personal, dossier de prensa, candidaturas académicas</h3>
+
+<div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> Bio larga · español</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Leonardo De La Hoz Borrego trabaja donde se cruzan tres cosas que normalmente se estudian por separado: cómo aprende la gente, qué puede hacer la IA conversacional cuando se pone al servicio de ese aprendizaje, y cómo se sostiene económicamente una empresa que intenta ambas cosas. Vive y opera entre Barranquilla (Colombia) y Tallinn/Tartu (Estonia).
+
+FORMACIÓN
+
+Es Máster en Tecnología Educativa por la Universidad de Tartu, grado obtenido en junio de 2026. Su tesis, «Reflecting on Health and Sustainability: A GPT-powered Intervention to Support Parental Awareness and Family Well-being», partió de una pregunta concreta: si un sistema basado en GPT puede sostener una conversación que lleve a madres y padres a reflexionar —no solo a informarse— sobre la salud y la sostenibilidad de su vida familiar. El trabajo se desarrolló bajo la supervisión de Liisi Pajula, con revisión de Mirjam Burget, dentro del programa dirigido por Emanuele Bardone.
+
+Previamente cursó un MBA en Gestión de la Transición Sostenible en Bologna Business School (2021), un programa centrado en cómo se gobiernan las transiciones de sistemas productivos hacia modelos sostenibles. Su base es una formación en ingeniería.
+
+INNOVACIÓN Y PROPIEDAD INDUSTRIAL
+
+Entre 2022 y 2023 llevó tres invenciones desde la idea hasta la solicitud formal de patente. Fue beneficiario, en tres procesos independientes, de la convocatoria nacional «Crearlo No Es Suficiente 2.0» del Ministerio de Ciencia, Tecnología e Innovación de Colombia, operada por la Corporación Tecnnova UEE junto a la Red JOINN, un programa diseñado precisamente para cerrar la distancia entre un resultado de investigación y un derecho de propiedad industrial.
+
+De ese acompañamiento resultaron tres solicitudes radicadas ante la Superintendencia de Industria y Comercio en 2022 y publicadas ese mismo año, en dos campos distintos: un método de producción in-situ de tratamiento biocida a base de cobre reciclado para protección de madera, piscinas y cultivos agrícolas; y un sistema para facilitar la integración social efectiva y el emprendimiento de comunidades afines. La inversión pública del programa cubrió la redacción, la radicación y la publicación de las solicitudes.
+
+En 2022 participó además con SaludArte.net en el Munich Global Impact Sprint (MGIS), Batch #3.
+
+EMPRESAS
+
+Es fundador de LedeLab Group OÜ (Tallinn, registro 14513358), la matriz de un portafolio deliberadamente asset-light cuya tesis es operar entre Estonia y América Latina: estructura societaria y digital europea, ejecución y mercado latinoamericanos.
+
+Bajo esa matriz: be360 (be360.app) lleva salud conductual con IA conversacional a entornos educativos; CamIlA y DelaVent desarrollan agentes conversacionales modulares; LedeLab Colombia, ADIMAT e I+DE SAS (imasde.co) trabajan en bioprotección de madera, apoyadas en Grupo Protemad, que desde 1994 desarrolla tratamientos antifúngicos y aditivos biocidas; PlanyArq (planyarq.co) opera en el área de arquitectura y proyectos; y dos medios, CONoticias Neutrales (ledelab.co) y EENeutral News (ledelab.ee), sostienen una apuesta editorial por la información neutral.
+
+I+DE SAS prepara su aplicación al EIC Accelerator para septiembre de 2026.
+
+ACTUALMENTE
+
+Mantiene una conversación abierta con la Eesti Ettevõtluskõrgkool Mainor (EUAS) sobre colaboración en investigación y docencia, con Ly Hõbe, Vice-Rectora, y Julia Rosend. Es e-Resident de Estonia.</pre></div>
+
+<div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> Bio larga · English</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>Leonardo De La Hoz Borrego works where three things meet that are usually studied apart: how people learn, what conversational AI can do when it is put at the service of that learning, and how a company attempting both actually pays for itself. He lives and operates between Barranquilla (Colombia) and Tallinn/Tartu (Estonia).
+
+EDUCATION
+
+He holds an MA in Educational Technology from the University of Tartu, awarded in June 2026. His thesis, "Reflecting on Health and Sustainability: A GPT-powered Intervention to Support Parental Awareness and Family Well-being", started from a concrete question: whether a GPT-based system can sustain a conversation that leads parents to reflect — not merely to be informed — on the health and sustainability of their family life. The work was supervised by Liisi Pajula and reviewed by Mirjam Burget, within the programme led by Emanuele Bardone.
+
+He previously completed an MBA in Sustainability Transition Management at Bologna Business School (2021), a programme focused on how transitions of productive systems towards sustainable models are governed. His foundation is a Bachelor of Engineering.
+
+INNOVATION AND INDUSTRIAL PROPERTY
+
+Between 2022 and 2023 he took three inventions from idea to formal patent application. He was a beneficiary, across three separate processes, of the national call "Crearlo No Es Suficiente 2.0" run by Colombia's Ministry of Science, Technology and Innovation and operated by Corporación Tecnnova UEE together with Red JOINN — a programme designed precisely to close the distance between a research result and an industrial property right.
+
+That work produced three applications filed before the Superintendency of Industry and Commerce in 2022 and published the same year, across two distinct fields: a method for in-situ production of a recycled-copper biocidal treatment for the protection of timber, swimming pools and agricultural crops; and a system to facilitate effective social integration and entrepreneurship among affinity communities. Public funding covered the drafting, filing and publication of the applications.
+
+In 2022 he also took part in the Munich Global Impact Sprint (MGIS), Batch #3, with SaludArte.net.
+
+VENTURES
+
+He is the founder of LedeLab Group OÜ (Tallinn, reg. 14513358), the holding company of a deliberately asset-light portfolio whose thesis is to operate between Estonia and Latin America: European corporate and digital structure, Latin American execution and market.
+
+Under that umbrella: be360 (be360.app) brings behavioural health through conversational AI into educational settings; CamIlA and DelaVent build modular conversational agents; LedeLab Colombia, ADIMAT and I+DE SAS (imasde.co) work on wood bioprotection, supported by Grupo Protemad, which has developed antifungal treatments and biocidal additives since 1994; PlanyArq (planyarq.co) operates in architecture and projects; and two outlets, CONoticias Neutrales (ledelab.co) and EENeutral News (ledelab.ee), sustain an editorial commitment to neutral information.
+
+I+DE SAS is preparing its EIC Accelerator application for September 2026.
+
+CURRENTLY
+
+He maintains an ongoing conversation with Eesti Ettevõtluskõrgkool Mainor (EUAS) on research and teaching collaboration, with Ly Hõbe, Vice-Rector, and Julia Rosend. He is an Estonian e-Resident.</pre></div>
+
+<div class="gap">Las bios largas siguen afirmando cosas que conviene poder sostener por escrito:
+<b>(a)</b> el rol exacto en cada empresa (¿fundador, socio, CEO, asesor?) — solo digo "fundador" de
+LedeLab Group OÜ y me limito a "bajo esa matriz" para el resto;
+<b>(b)</b> si PlanyArq es realmente arquitectura y proyectos;
+<b>(c)</b> si SaludArte.net sigue activa o fue el vehículo puntual del MGIS 2022;
+<b>(d)</b> el título y campo técnico de la tercera patente, NC2022/0007610, que no aparece en ninguna
+bio porque todavía no lo tengo.</div>
+
+<!-- ================= 3. FORMACIÓN ================= -->
+<h2 id="formacion">3. Formación, publicaciones y outputs de investigación</h2>
+
+<div class="card">
+  <h3>Formación</h3>
+  <table>
+    <thead><tr><th>Título</th><th>Institución</th><th>Fechas</th><th>Detalle</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>MA Educational Technology</b></td>
+        <td>University of Tartu, Estonia</td>
+        <td>Defensa 8-jun-2026<br>Grado 18-jun-2026</td>
+        <td>Tesis: «Reflecting on Health and Sustainability: A GPT-powered Intervention to Support
+        Parental Awareness and Family Well-being».<br>
+        Supervisora: Liisi Pajula · Revisora: Mirjam Burget · Programa: Emanuele Bardone</td>
+      </tr>
+      <tr>
+        <td><b>MBA Sustainability Transition Management</b></td>
+        <td>Bologna Business School, Italia</td>
+        <td>2021</td>
+        <td><span class="tag t-gap">falta mes de inicio/fin</span></td>
+      </tr>
+      <tr>
+        <td><b>Bachelor of Engineering</b></td>
+        <td><span class="tag t-gap">institución sin confirmar</span></td>
+        <td><span class="tag t-gap">años sin confirmar</span></td>
+        <td><span class="tag t-gap">especialidad sin confirmar</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="gap">El <b>Bachelor of Engineering</b> es el hueco más incómodo: sin institución, años ni
+  especialidad no se puede cargar en ORCID ni en LinkedIn, y es campo obligatorio en varias plataformas.
+  Necesito: nombre exacto del título en español, universidad, ciudad, año de inicio y año de grado.</div>
+</div>
+
+<div class="card">
+  <h3>Publicaciones y outputs</h3>
+  <table>
+    <thead><tr><th>Output</th><th>Tipo</th><th>Estado</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>«Reflecting on Health and Sustainability: A GPT-powered Intervention to Support Parental
+        Awareness and Family Well-being»</td>
+        <td>Tesis de máster, University of Tartu</td>
+        <td><span class="tag t-ok">defendida 2026</span> <span class="tag t-gap">falta URL del repositorio DSpace</span></td>
+      </tr>
+      <tr>
+        <td>Solicitudes de patente NC2022/0007224, NC2022/0007319 y NC2022/0007610</td>
+        <td>Propiedad industrial (SIC, Colombia)</td>
+        <td><span class="tag t-ok">publicadas 2022</span> — cargables en ORCID y ETIS. Ver <a href="#grants">§4</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert">
+    <h4>Retirado: el trabajo sobre educación vial en Barranquilla</h4>
+    <p>«Effects of a Road, Traffic and Mobility Education Program on Attitudes and Knowledge of
+    Schoolchildren in Barranquilla, Colombia» <b>no es obra tuya</b> y se ha eliminado de este documento,
+    de las bios y de todos los bloques por plataforma.</p>
+    <p>En tu disco no hay ninguna copia de ese paper. Lo único que apareció al buscar esa frase fue una
+    <b>cita dentro de otro artículo</b>: «Promoting Behavior Change Among Campus Commuters» (Tat Fu,
+    Norbert Mundorf, Colleen Redding, Andrea Paiva y James Prochaska), uno de los 38 PDFs del paquete
+    que descargaste de Academia.edu para la tesis, en
+    <code>~/Desktop/Tartu/EdTech MA Thesis Defense/Academia.edu_Bundle_…/most_similar_papers_to_this_one/</code>.
+    No he borrado nada: es bibliografía legítima de tu tesis. Dime si aun así quieres eliminar ese PDF.</p>
+  </div>
+
+  <div class="gap">Falta la <b>URL del repositorio de la Universidad de Tartu (DSpace)</b> donde queda
+  depositada la tesis. Ese enlace es lo que le da a la tesis existencia citable y es lo primero que se
+  enlaza desde ORCID.</div>
+  <div class="gap">Con el paper de Barranquilla fuera, <b>tu único output académico propio es la tesis</b>.
+  Si hay ponencias, capítulos, informes técnicos o preprints que no me hayas mencionado, dímelo: cambia
+  bastante el peso del perfil en ORCID, ETIS y ResearchGate.</div>
+</div>
+
+<!-- ================= 4. GRANTS ================= -->
+<h2 id="grants">4. Grants, premios, patentes y programas</h2>
+
+<div class="card">
+  <h3>Crearlo No Es Suficiente 2.0 — tres procesos <span class="tag t-ok">verificado por correo</span></h3>
+  <dl class="kv">
+    <dt>Tipo</dt><dd>Convocatoria nacional de innovación</dd>
+    <dt>Financiador</dt><dd>MinCiencias (Colombia)</dd>
+    <dt>Operadores</dt><dd>Corporación Tecnnova UEE · Red JOINN</dd>
+    <dt>Beneficiario IDs</dt><dd><b>882</b>, <b>1052</b> y <b>1106</b></dd>
+    <dt>Formalización</dt><dd>ID 882: acta de inicio firmada 25-abr-2022</dd>
+    <dt>Liquidación</dt><dd>ID 1106: ago-2022 · ID 1052: ago-2022 · ID 882: oct/nov-2022</dd>
+    <dt>Alcance</dt><dd>La inversión estatal cubrió redacción, radicación y publicación de las solicitudes</dd>
+  </dl>
+  <div class="gap">Falta el <b>monto</b> de cada proceso, si es publicable. ORCID lo pide en la sección
+  <i>Funding</i>, aunque admite dejarlo en blanco.</div>
+</div>
+
+<div class="card">
+  <h3>Las tres solicitudes de patente</h3>
+  <div class="tbl-scroll" style="border:0">
+  <table>
+    <thead><tr><th>ID</th><th>Ref. abogado</th><th>Expediente SIC</th><th>Título</th><th>Estado</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>1106</b></td>
+        <td>1482-P<br><span style="color:var(--muted);font-size:12.5px">TM Tamayo</span></td>
+        <td>NC2022/0007224</td>
+        <td>MÉTODO DE PRODUCCIÓN IN-SITU DE UN TRATAMIENTO BIOCIDA A BASE DE COBRE RECICLADO PARA
+        PROTECCIÓN DE MADERA, PISCINAS, CULTIVOS AGRÍCOLAS Y OTRAS APLICACIONES</td>
+        <td>Publicada 18-nov-2022 · Petición de examen 7-mar-2023 · Abandono Art. 45 (nov-2025) ·
+        <b><span class="tag t-gap">negada</span></b> notificada 26-nov-2025</td>
+      </tr>
+      <tr>
+        <td><b>1052</b></td>
+        <td>1478-P<br><span style="color:var(--muted);font-size:12.5px">TM Tamayo</span></td>
+        <td>NC2022/0007319</td>
+        <td>SISTEMA PARA FACILITAR LA INTEGRACIÓN SOCIAL EFECTIVA Y EL EMPRENDIMIENTO DE COMUNIDADES
+        AFINES</td>
+        <td>Publicada 18-nov-2022 · Petición de examen 7-mar-2023 · Abandono Art. 45 (nov-2025) ·
+        <b><span class="tag t-gap">negada</span></b> notificada 2-dic-2025</td>
+      </tr>
+      <tr>
+        <td><b>882</b></td>
+        <td>—<br><span style="color:var(--muted);font-size:12.5px">CienTech</span></td>
+        <td>NC2022/0007610</td>
+        <td><span class="tag t-gap">título sin confirmar</span><br>
+        <span style="color:var(--muted);font-size:12.5px">De la redacción se deduce materia química
+        (fórmulas estructurales de componentes, producto final como mezcla)</span></td>
+        <td>Radicada 31-may-2022 · Examen de forma 30-ago-2022 · Publicada ·
+        <span class="tag t-warn">estado actual sin confirmar</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="alert">
+    <h4>Qué se puede afirmar hoy y qué no</h4>
+    <p><b>Se puede afirmar:</b> que fuiste beneficiario de una convocatoria nacional de MinCiencias en
+    tres procesos, y que de ahí salieron tres solicitudes de patente radicadas y publicadas en 2022 ante
+    la SIC. Eso es verificable y sigue siendo cierto.</p>
+    <p><b>No se debe afirmar:</b> "patente concedida", "patente vigente", ni dejar en presente
+    "tiene una patente". Dos de las tres fueron <b>negadas</b> en nov/dic-2025 por no responder al examen
+    de patentabilidad (Art. 45). Cualquiera que consulte la SIC lo ve.</p>
+    <p>Todos los bloques de <a href="#plataformas">§6</a> ya están redactados con esa cautela: hablan del
+    grant y de las solicitudes en pasado.</p>
+  </div>
+
+  <div class="alert">
+    <h4>NC2022/0012133 no es invención tuya — va como asesoría</h4>
+    <p>La solicitud NC2022/0012133 (ref. 1495-P, «REMOVEDOR DE…») es de <b>Oscar Mauricio Vargas
+    Bayona</b>. Tú no figuras como inventor ni como titular, así que <b>nunca va en la lista de patentes
+    propias</b> ni en ORCID, ETIS o ResearchGate. Se registra como <b>asesoría prestada a un tercero</b>,
+    que es una credencial distinta y perfectamente publicable. Detalle en la tarjeta siguiente.</p>
+  </div>
+
+  <div class="gap">Tres cosas que solo puedes resolver tú:
+  <b>(1)</b> el <b>título de NC2022/0007610</b> — está en los entregables de CienTech («Versión final
+  Memoria descriptiva y Capítulo reivindicatorio», jun-2022);
+  <b>(2)</b> su <b>estado actual</b> — CienTech te recordó hasta abr-2024 un "pago de patentabilidad
+  pendiente", así que puede haber corrido la misma suerte que las otras dos;
+  <b>(3)</b> si quieres <b>recuperar algo</b> de las dos negadas (recurso, nueva solicitud, o PCT sobre
+  materia no divulgada) antes de escribir nada público sobre ellas.</div>
+</div>
+
+<div class="card">
+  <h3>Asesoría a terceros — patente NC2022/0012133 <span class="tag t-ok">documentada en correo</span></h3>
+  <p>Acompañamiento a <b>Oscar Mauricio Vargas Bayona</b> en dos frentes: <b>análisis de patentabilidad
+  y redacción de la solicitud</b>, y <b>consecución de la subvención</b> que la financió.</p>
+  <dl class="kv">
+    <dt>Beneficiario</dt><dd>Oscar Mauricio Vargas Bayona — ID 1258</dd>
+    <dt>Tu rol</dt><dd>Asesor / acompañamiento técnico y de convocatoria (no inventor, no titular)</dd>
+    <dt>Convocatoria</dt><dd>Crearlo No Es Suficiente <b>4.0</b> — MinCiencias / Tecnnova / Red JOINN
+      <span class="tag t-warn">ver nota</span></dd>
+    <dt>Ref. abogado</dt><dd>1495-P (TM Tamayo)</dd>
+    <dt>Expediente SIC</dt><dd>NC2022/0012133</dd>
+    <dt>Título</dt><dd>«REMOVEDOR DE…» <span class="tag t-gap">título completo sin confirmar</span></dd>
+    <dt>Materia</dt><dd>Limpiador / removedor para fachadas</dd>
+    <dt>Radicación</dt><dd>30-ago-2022</dd>
+    <dt>Publicación</dt><dd>28-dic-2022</dd>
+    <dt>Estado</dt><dd>Requerimiento de examen de patentabilidad notificado por la SIC el 17-oct-2025</dd>
+  </dl>
+
+  <h3>Rastro documental que sostiene la asesoría</h3>
+  <table>
+    <thead><tr><th>Fecha</th><th>Hito</th></tr></thead>
+    <tbody>
+      <tr><td>22-jun-2022</td><td>Envías a Oscar tu análisis <i>«Patentabilidad Limpiador de Fachadas»</i>
+        — antes de que arranque la redacción formal</td></tr>
+      <tr><td>30-jun-2022</td><td>Resultado de evaluación de la convocatoria: seleccionado. Te lo reenvía
+        el mismo día</td></tr>
+      <tr><td>8-jul-2022</td><td>Reunión de inicio de redacción de patente 1495-P, reenviada a ti</td></tr>
+      <tr><td>21-jul-2022</td><td>Entregables 1 a 3 reenviados a ti</td></tr>
+      <tr><td>22-ago-2022</td><td>Entregable 4 (redacción de patente) reenviado a ti</td></tr>
+      <tr><td>25-ago-2022</td><td>Envío de documentos a TM Tamayo para radicación, <b>contigo en copia
+        oculta</b>, con Tecnnova en cc</td></tr>
+      <tr><td>30-ago-2022</td><td>Oscar, tras radicar: <i>«ya quedó lista la radicación, muchísimas
+        gracias por el apoyo y el empuje»</i></td></tr>
+      <tr><td>28-dic-2022</td><td>Publicación de la solicitud, reenviada a ti</td></tr>
+      <tr><td>17-oct-2025</td><td>Requerimiento de examen de la SIC, reenviado a ti</td></tr>
+    </tbody>
+  </table>
+
+  <div class="gap">Dos cosas antes de publicarlo:
+  <b>(1)</b> el <b>título completo</b> de la solicitud — en el correo siempre aparece truncado como
+  «REMOVEDOR DE…»; está entero en la notificación de publicación de TM Tamayo del 28-dic-2022 o en la
+  consulta pública de la SIC.
+  <b>(2)</b> El correo prueba acompañamiento continuo y un agradecimiento explícito por «el apoyo y el
+  empuje», pero <b>no hay contrato ni designación formal</b> como asesor. Para ponerlo en un perfil
+  público, una línea de confirmación de Oscar lo deja blindado. No bloquea nada: los bloques ya están
+  redactados de forma sostenible con lo que hay.</div>
+
+  <div class="gap">Oscar escribe también desde <code>gerencia@imasde.co</code>, y hay documentación
+  conjunta del producto <b>Vanadis</b> (2021) y sesiones de I+DE SAS con la Cámara de Comercio de
+  Barranquilla (2020). <b>¿Cuál es exactamente su rol en I+DE SAS?</b> Si es socio o gerente, esta
+  asesoría no fue un encargo externo sino trabajo dentro de tu propio grupo — y eso cambia cómo se
+  redacta: pasaría de «asesoría a terceros» a «liderazgo de la estrategia de PI del grupo».</div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h3>Munich Global Impact Sprint <span class="tag t-ok">verificado</span></h3>
+    <dl class="kv">
+      <dt>Programa</dt><dd>MGIS Batch #3</dd>
+      <dt>Año</dt><dd>2022</dd>
+      <dt>Vehículo</dt><dd>SaludArte.net</dd>
+    </dl>
+    <div class="gap">Confirmar el <b>rol</b> (fundador, cofundador, participante) y si <b>SaludArte.net</b>
+    sigue operando o se integró en be360.</div>
+  </div>
+
+  <div class="card">
+    <h3>EIC Accelerator <span class="tag t-warn">en preparación</span></h3>
+    <dl class="kv">
+      <dt>Aplicante</dt><dd>I+DE SAS (imasde.co)</dd>
+      <dt>Fecha objetivo</dt><dd>Septiembre 2026</dd>
+      <dt>Tema</dt><dd>Bioprotección de madera</dd>
+    </dl>
+    <p style="margin:8px 0 0;color:var(--muted);font-size:13px">Aún no es un logro; no aparece en las bios.
+    Se moverá a "grants" solo si se presenta y avanza.</p>
+  </div>
+
+  <div class="card">
+    <h3>Otros hilos encontrados <span class="tag t-warn">¿cuentan?</span></h3>
+    <ul class="tight">
+      <li><b>CCCS</b> — Consejo Colombiano de Construcción Sostenible: proceso de membresía como
+      Profesional Integrante iniciado en mayo-2023, referido por la Corporación Universitaria de la
+      Costa (CUC). ¿Se completó?</li>
+      <li><b>CienTech</b> — propuestas de asesoría en PI en 2023 y 2024, sin cierre visible.</li>
+    </ul>
+    <div class="gap">Ninguno de los dos es un grant. Dime si la membresía del CCCS se formalizó: si sí,
+    es una credencial publicable en LinkedIn y en la web.</div>
+  </div>
+</div>
+
+<div class="gap">Barrido de grants: revisé <code>leonardo@ledelab.group</code> a fondo por «Crearlo No Es
+Suficiente» y por número de expediente. <b>No apareció ninguna otra convocatoria financiada</b>. Si
+sospechas de alguna en concreto (Enterprise Estonia, Startup Estonia, iNNpulsa, SENA, Erasmus+,
+Horizon, EIT…), dame el nombre o un periodo acotado y busco con precisión. Las búsquedas genéricas se
+ahogan en newsletters de Cientech y Tecnnova.</div>
+
+<!-- ================= 5. EMPRENDIMIENTO ================= -->
+<h2 id="empresas">5. Emprendimiento</h2>
+<p class="lede no-search">El portafolio bajo LedeLab Group OÜ. be360 tiene su propia subsección (§5.1) porque
+es el proyecto activo con más movimiento — el resto sigue en la tabla general.</p>
+
+<div class="card">
+  <table>
+    <thead><tr><th>Entidad</th><th>Qué es</th><th>Rol</th><th>Web / datos</th></tr></thead>
+    <tbody>
+      <tr><td><b>LedeLab Group OÜ</b><br><span style="color:var(--muted)">Tallinn, Estonia</span></td>
+          <td>Matriz del portafolio. Tesis Estonia–LatAm, modelo asset-light.</td>
+          <td>Fundador<br><span style="color:var(--muted);font-size:12.5px">firmabas «Founder &amp; CEO, LedeLab» en 2023</span></td>
+          <td>Reg. 14513358<br>ledelab.group</td></tr>
+      <tr><td><b>be360</b></td>
+          <td>Salud conductual con IA conversacional en entornos educativos.</td>
+          <td><span class="tag t-gap">confirmar</span></td>
+          <td>be360.app</td></tr>
+      <tr><td><b>CamIlA · DelaVent</b></td>
+          <td>Agentes conversacionales modulares.</td>
+          <td><span class="tag t-gap">confirmar</span></td>
+          <td>delavent.com <span class="tag t-warn">verificar</span></td></tr>
+      <tr><td><b>Protemad / Grupo Protemad</b><br><span style="color:var(--muted)">desde 1994</span></td>
+          <td>Biotecnología: tratamientos antifúngicos y aditivos biocidas.</td>
+          <td><span class="tag t-gap">confirmar</span></td>
+          <td><span class="tag t-gap">web sin confirmar</span></td></tr>
+      <tr><td><b>LedeLab Colombia · ADIMAT · I+DE SAS</b></td>
+          <td>Bioprotección de madera. Aplicante EIC Accelerator sept-2026.
+          Fichas técnicas ACQ-D y ACB-184 en circulación comercial.</td>
+          <td><span class="tag t-gap">confirmar</span></td>
+          <td>imasde.co</td></tr>
+      <tr><td><b>PlanyArq</b></td>
+          <td><span class="tag t-gap">descripción sin confirmar</span></td>
+          <td><span class="tag t-gap">confirmar</span></td>
+          <td>planyarq.co</td></tr>
+      <tr><td><b>CONoticias Neutrales</b></td>
+          <td>Medio de información neutral (Colombia).</td>
+          <td><span class="tag t-gap">confirmar</span></td>
+          <td>ledelab.co</td></tr>
+      <tr><td><b>EENeutral News</b></td>
+          <td>Medio de información neutral (Estonia).</td>
+          <td><span class="tag t-gap">confirmar</span></td>
+          <td>ledelab.ee</td></tr>
+      <tr><td><b>SaludArte.net</b></td>
+          <td>Vehículo del Munich Global Impact Sprint 2022.</td>
+          <td><span class="tag t-gap">confirmar</span></td>
+          <td><span class="tag t-gap">¿sigue activa?</span></td></tr>
+    </tbody>
+  </table>
+  <div class="gap">Para cada empresa faltan <b>título de rol</b> y <b>fechas de inicio</b> (y de fin, si
+  aplica). LinkedIn, Crunchbase, Torre y F6S los piden todos, y ORCID los quiere en <i>Employment</i> con
+  fecha. Sin esto los perfiles quedan con huecos visibles.<br>
+  También hay que decidir la <b>jerarquía pública</b>: ¿ADIMAT e I+DE SAS son marcas de LedeLab Colombia
+  o entidades legales separadas? La respuesta cambia cómo se listan.</div>
+</div>
+
+<!-- ================= 5.1 BE360 ================= -->
+<h3 id="be360" style="margin-top:34px">5.1 be360 <span class="tag t-ok">activo</span></h3>
+
+<div class="card">
+  <dl class="kv">
+    <dt>Qué es</dt><dd><b>Vita</b>, asistente conversacional de hábitos infantiles de Bienestar 360.
+      Traduce el marco clínico del pediatra Peter Álvarez (Sistema de Reversión Biológica) en una
+      conversación con el padre/madre, con revisión clínica humana obligatoria (Human-in-the-Loop)
+      antes de que cualquier recomendación llegue a una familia.</dd>
+    <dt>Mi rol</dt><dd>CTO — tecnología y estrategia. Capacidad real: ~4h/semana. Peter Álvarez es
+      CEO y autoridad clínica; usa el producto, no maneja el stack.</dd>
+    <dt>Estado</dt><dd>TRL 4, cruzando a TRL 5 — sistema construido y probado de punta a punta con
+      casos sintéticos/adversariales. <b>Aún no ha corrido con familias reales</b> — ese es el paso
+      siguiente ("Día 5" del sprint).</dd>
+    <dt>Piloto ancla</dt><dd>Colegio BIS, Barranquilla — 100 familias (privado). Pipeline hacia
+      colegios públicos ya iniciado: contacto con la Secretaría de Educación de Barranquilla
+      (154 colegios oficiales, ~190.000 alumnos).</dd>
+    <dt>Entidad</dt><dd>Factura hoy con LedeLab Colombia S.A.S. (NIT 901668620) — plan en 2 etapas
+      hacia una entidad propia, Bienestar 360 SAS, cuando se justifique.</dd>
+    <dt>Fondos en curso</dt><dd>iF Social Impact Prize (aplicando, cierra 19 ago 2026) · DIV Fund
+      Stage 1 — aplicación preparada, en pausa hasta resolver ORCID/ETIS de esta sección.</dd>
+    <dt>Producto en vivo</dt><dd><a href="https://be360.app/vita-demo-formulario/">be360.app</a> ·
+      panel de revisión: <a href="https://be360.app/panel/">be360.app/panel</a></dd>
+  </dl>
+
+  <div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> be360 · Resumen corto (para reusar en plataformas)</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>be360 es un asistente conversacional de hábitos infantiles que acompaña a las familias entre consultas médicas, con revisión clínica humana obligatoria antes de que cualquier recomendación llegue a un niño o niña. Modelo B2B2C: colegios como canal a costo cero, familias como beneficiarias directas. En piloto con el Colegio BIS (Barranquilla), con un camino trazado hacia colegios públicos de la ciudad.</pre></div>
+
+  <div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> be360 · Short summary (reusable across platforms)</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>be360 is a conversational habit-coaching assistant for children that supports families between medical visits, with mandatory clinical review before any recommendation reaches a child. B2B2C model: schools as a zero-cost channel, families as direct beneficiaries. Piloting at Colegio BIS (Barranquilla), with a path mapped toward the city's public schools.</pre></div>
+
+  <div class="gap">Antes de que esta subsección pueda salir a producción pública (aunque sea detrás de
+  login): <b>equipo aún sin confirmar</b> — Freddy Barrios (pediatra, Clínica Marly), Eileen (psicóloga)
+  y Pedinorte (clínica pediátrica, Barranquilla) están en conversación, ninguno confirmado todavía. No
+  listar a ninguno de los tres como parte de be360 hasta que acepten un rol concreto — mismo criterio que
+  ya se aplicó en el borrador de DIV Fund.</div>
+</div>
+
+<!-- ================= 6. PLATAFORMAS ================= -->
+<h2 id="plataformas">6. Bloques listos para copiar, por plataforma</h2>
+<p class="lede no-search">Cada bloque está dimensionado para el campo real de esa plataforma. El contador
+muestra palabras y caracteres; los límites duros están anotados en cada tarjeta.</p>
+
+<!-- ORCID -->
+<div class="card" id="p-orcid">
+  <h3>ORCID <span class="tag t-gap">vacío · prioridad #1</span></h3>
+  <p>0009-0006-0542-5296 · Biografía máx. 5.000 caracteres. La biografía va en <b>inglés</b> (ORCID es
+  monolingüe en la práctica); el bloque ES queda como referencia interna.</p>
+
+  <div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> ORCID · Biography</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>Leonardo De La Hoz Borrego is an educational technologist, researcher and entrepreneur working between Barranquilla (Colombia) and Tallinn/Tartu (Estonia).
+
+He holds an MA in Educational Technology from the University of Tartu (2026), with a thesis on a GPT-powered intervention designed to support parental awareness of family health and sustainability, and an MBA in Sustainability Transition Management from Bologna Business School (2021).
+
+His work concerns the design and evaluation of interventions in real-world settings — how a technology actually changes what people know, decide and do — and the transfer of such results into industry. He was a beneficiary, across three separate processes, of the Colombian Ministry of Science, Technology and Innovation's national innovation call "Crearlo No Es Suficiente 2.0", which produced three patent applications filed and published in 2022 before Colombia's Superintendency of Industry and Commerce.
+
+He is the founder of LedeLab Group OÜ (Tallinn), an asset-light venture portfolio spanning conversational AI for behavioural health in education, materials bioprotection, and independent neutral media across Estonia and Latin America. He is an Estonian e-Resident.</pre></div>
+
+  <div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> ORCID · Biografía (referencia interna)</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Leonardo De La Hoz Borrego es tecnólogo educativo, investigador y emprendedor, con base entre Barranquilla (Colombia) y Tallinn/Tartu (Estonia).
+
+Es Máster en Tecnología Educativa por la Universidad de Tartu (2026), con una tesis sobre una intervención basada en GPT para apoyar la conciencia parental sobre salud y sostenibilidad familiar, y MBA en Gestión de la Transición Sostenible por Bologna Business School (2021).
+
+Su trabajo aborda el diseño y la evaluación de intervenciones en contextos reales —cómo una tecnología cambia efectivamente lo que la gente sabe, decide y hace— y la transferencia de esos resultados a la industria. Fue beneficiario, en tres procesos independientes, de la convocatoria nacional de innovación «Crearlo No Es Suficiente 2.0» de MinCiencias, de la que resultaron tres solicitudes de patente radicadas y publicadas en 2022 ante la Superintendencia de Industria y Comercio de Colombia.
+
+Es fundador de LedeLab Group OÜ (Tallinn), un portafolio asset-light que abarca IA conversacional para salud conductual en educación, bioprotección de materiales y medios independientes de información neutral entre Estonia y América Latina. Es e-Resident de Estonia.</pre></div>
+
+  <div class="blk"><div class="blk-head"><span class="blk-title">ORCID · Keywords (campo separado)</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>educational technology; conversational AI; generative AI in education; behavioural health; parental awareness; sustainability transition; intervention design; technology transfer; industrial property; wood preservation; Estonia; Latin America</pre></div>
+
+  <div class="blk"><div class="blk-head"><span class="blk-title">ORCID · Websites &amp; Other IDs (uno por línea)</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Personal website — https://delahozborrego.com
+LedeLab Group — https://ledelab.group
+LinkedIn — https://linkedin.com/in/leonardodelahoz
+ResearchGate — https://researchgate.net/profile/Leonardo-De-La-Hoz-Borrego
+Web of Science ResearcherID — MRJ-2286-2025</pre></div>
+
+  <div class="blk"><div class="blk-head"><span class="blk-title">ORCID · Education (transcribir campo a campo)</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>[1] University of Tartu — Tartu, EE
+    Master of Arts (MA), Educational Technology
+    End date: 06/2026
+    Thesis: Reflecting on Health and Sustainability: A GPT-powered Intervention
+    to Support Parental Awareness and Family Well-being
+
+[2] Bologna Business School — Bologna, IT
+    MBA, Sustainability Transition Management
+    End date: 2021
+
+[3] [PENDIENTE — institución] — [ciudad, país]
+    Bachelor of Engineering, [especialidad]
+    Dates: [pendiente]</pre></div>
+
+  <div class="blk"><div class="blk-head"><span class="blk-title">ORCID · Employment</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>[1] LedeLab Group OÜ — Tallinn, EE
+    Founder
+    Start date: [PENDIENTE]
+    URL: https://ledelab.group</pre></div>
+
+  <div class="blk"><div class="blk-head"><span class="blk-title">ORCID · Funding (tres entradas)</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Los tres procesos se registran como tres entradas separadas, todas con:
+
+Title: Convocatoria Nacional Crearlo No Es Suficiente 2.0
+Funding agency: Ministerio de Ciencia, Tecnología e Innovación (MinCiencias), Colombia
+Operators: Corporación Tecnnova UEE / Red JOINN
+Type: Grant
+Year: 2022
+Amount: [PENDIENTE — o dejar en blanco]
+
+y cambiando solo el identificador y el resultado asociado:
+
+[1] Beneficiary ID 1106 — outcome: patent application NC2022/0007224
+[2] Beneficiary ID 1052 — outcome: patent application NC2022/0007319
+[3] Beneficiary ID 882  — outcome: patent application NC2022/0007610</pre></div>
+
+  <div class="blk"><div class="blk-head"><span class="blk-title">ORCID · Works — tipo "patent"</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>[1] Work type: Patent
+    Title: MÉTODO DE PRODUCCIÓN IN-SITU DE UN TRATAMIENTO BIOCIDA A BASE DE COBRE
+           RECICLADO PARA PROTECCIÓN DE MADERA, PISCINAS, CULTIVOS AGRÍCOLAS Y
+           OTRAS APLICACIONES
+    Publication date: 2022-11-18
+    External ID: other-id — NC2022/0007224 (SIC, Colombia)
+
+[2] Work type: Patent
+    Title: SISTEMA PARA FACILITAR LA INTEGRACIÓN SOCIAL EFECTIVA Y EL EMPRENDIMIENTO
+           DE COMUNIDADES AFINES
+    Publication date: 2022-11-18
+    External ID: other-id — NC2022/0007319 (SIC, Colombia)
+
+[3] Work type: Patent
+    Title: [PENDIENTE — título de NC2022/0007610]
+    Publication date: 2022
+    External ID: other-id — NC2022/0007610 (SIC, Colombia)
+
+[4] Work type: Dissertation or Thesis
+    Title: Reflecting on Health and Sustainability: A GPT-powered Intervention to
+           Support Parental Awareness and Family Well-being
+    Date: 2026-06
+    URL: [PENDIENTE — enlace DSpace de la Universidad de Tartu]</pre></div>
+
+  <div class="gap">Antes de tocar nada en ORCID: <b>verificar el email</b> de la cuenta creada en oct-2024.
+  Si el email institucional de Tartu ya no está activo tras la graduación, hay que recuperar la cuenta con
+  soporte de ORCID — no crear un ORCID nuevo, porque el duplicado no se puede deshacer del todo y el
+  ResearcherID MRJ-2286-2025 se enlaza a uno solo.</div>
+  <div class="gap">ORCID registra <i>solicitudes</i> de patente sin problema y no exige que estén
+  concedidas. Aun así, decide si quieres listar las dos negadas: son verificables y publicadas, pero
+  cualquiera puede consultar su estado.</div>
+</div>
+
+<!-- ETIS -->
+<div class="card" id="p-etis">
+  <h3>ETIS.ee <span class="tag t-gap">sin perfil localizado</span></h3>
+  <p>Sistema estonio de información en investigación. Perfil en inglés; el estonio es opcional pero suma
+  ante EUAS.</p>
+
+  <div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> ETIS · Research description</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>Educational technologist and researcher, MA in Educational Technology, University of Tartu (2026). My research designs and evaluates interventions in real-world settings and measures their effect on attitudes, knowledge and reflection — most recently a GPT-powered intervention supporting parental awareness of family health and sustainability. A second strand concerns the transfer of results into industrial property and into asset-light ventures operating between Estonia and Latin America: as a beneficiary of Colombia's national innovation call "Crearlo No Es Suficiente 2.0" I took three inventions to filed and published patent applications in 2022. Founder of LedeLab Group OÜ (Tallinn, reg. 14513358). Estonian e-Resident.
+
+Research fields: educational technology; human-computer interaction in learning; generative AI in education; health promotion and behaviour change; sustainability transitions.</pre></div>
+
+  <div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> ETIS · Descripción (referencia interna)</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Tecnólogo educativo e investigador, Máster en Tecnología Educativa por la Universidad de Tartu (2026). Mi investigación diseña y evalúa intervenciones en contextos reales y mide su efecto sobre actitudes, conocimientos y reflexión; la más reciente, una intervención basada en GPT para apoyar la conciencia parental sobre salud y sostenibilidad familiar. Una segunda línea aborda la transferencia de resultados a propiedad industrial y a empresas asset-light que operan entre Estonia y América Latina: como beneficiario de la convocatoria nacional colombiana «Crearlo No Es Suficiente 2.0» llevé tres invenciones hasta solicitudes de patente radicadas y publicadas en 2022. Fundador de LedeLab Group OÜ (Tallinn, reg. 14513358). e-Resident de Estonia.
+
+Campos de investigación: tecnología educativa; interacción persona-computador en el aprendizaje; IA generativa en educación; promoción de la salud y cambio de comportamiento; transiciones sostenibles.</pre></div>
+
+  <div class="gap">Primero hay que <b>entrar a ETIS con el ID estonio / e-Residencia</b> y comprobar si la
+  Universidad de Tartu ya creó un registro al matricularte (es lo habitual con estudiantes de máster).
+  Si existe, se reclama; si no, se crea. No crear uno nuevo sin comprobarlo: los duplicados en ETIS son
+  molestos de fusionar.</div>
+</div>
+
+<!-- LINKEDIN -->
+<div class="card" id="p-linkedin">
+  <h3>LinkedIn <span class="tag t-warn">desactualizado</span></h3>
+  <p>linkedin.com/in/leonardodelahoz · Titular máx. 220 caracteres · Acerca de máx. 2.600 caracteres.</p>
+
+  <div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> LinkedIn · Titular</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Fundador de LedeLab Group OÜ · MA Tecnología Educativa (U. Tartu) · MBA Transición Sostenible (BBS) · IA conversacional para salud y educación · Bioprotección · Barranquilla ↔ Tallinn</pre></div>
+
+  <div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> LinkedIn · Headline</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>Founder at LedeLab Group OÜ · MA Educational Technology (Univ. of Tartu) · MBA Sustainability Transition (BBS) · Conversational AI for health &amp; education · Bioprotection · Barranquilla ↔ Tallinn</pre></div>
+
+  <div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> LinkedIn · Acerca de</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Construyo cosas en el cruce entre cómo aprende la gente y qué puede hacer la IA conversacional cuando se pone al servicio de ese aprendizaje. Opero entre Barranquilla y Tallinn, y ese puente no es anecdótico: es la tesis del negocio.
+
+Acabo de terminar el Máster en Tecnología Educativa en la Universidad de Tartu. Mi tesis diseñó y evaluó una intervención basada en GPT para que madres y padres reflexionen —no solo se informen— sobre la salud y la sostenibilidad de su vida familiar. Antes hice el MBA en Gestión de la Transición Sostenible en Bologna Business School.
+
+Lo que hago hoy, desde LedeLab Group OÜ (Tallinn):
+
+• be360 — salud conductual con IA conversacional en entornos educativos.
+• CamIlA y DelaVent — agentes conversacionales modulares.
+• I+DE SAS y ADIMAT — bioprotección de madera, sobre tres décadas de I+D de Grupo Protemad en tratamientos antifúngicos y aditivos biocidas. Preparando aplicación al EIC Accelerator.
+• CONoticias Neutrales y EENeutral News — dos medios con una apuesta editorial por la información neutral.
+
+Del lado de la innovación: fui beneficiario en tres procesos de la convocatoria nacional «Crearlo No Es Suficiente 2.0» de MinCiencias, y llevé tres invenciones hasta solicitudes de patente radicadas y publicadas ante la SIC en 2022. Ese mismo año asesoré además a otro inventor en el análisis de patentabilidad, la redacción de la solicitud y la consecución de la subvención que financió el proceso, que también terminó radicado y publicado. Y participé en el Munich Global Impact Sprint (Batch #3).
+
+Modelo asset-light, estructura europea, ejecución latinoamericana. Si trabajas en tecnología educativa, salud digital o bioeconomía entre Europa y América Latina, escríbeme: leonardo@ledelab.group</pre></div>
+
+  <div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> LinkedIn · About</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>I build things where two questions meet: how people actually learn, and what conversational AI can do once it is put at the service of that learning. I operate between Barranquilla and Tallinn — and that bridge isn't incidental, it's the business thesis.
+
+I have just completed my MA in Educational Technology at the University of Tartu. My thesis designed and evaluated a GPT-powered intervention to help parents reflect — not merely be informed — on the health and sustainability of their family life. Before that I did an MBA in Sustainability Transition Management at Bologna Business School.
+
+What I run today, through LedeLab Group OÜ (Tallinn):
+
+• be360 — behavioural health via conversational AI in educational settings.
+• CamIlA and DelaVent — modular conversational agents.
+• I+DE SAS and ADIMAT — wood bioprotection, built on three decades of Grupo Protemad R&amp;D in antifungal treatments and biocidal additives. Currently preparing an EIC Accelerator application.
+• CONoticias Neutrales and EENeutral News — two outlets committed to neutral information.
+
+On the innovation side: I was a beneficiary across three processes of MinCiencias' national call "Crearlo No Es Suficiente 2.0", taking three inventions through to patent applications filed and published before Colombia's SIC in 2022. That same year I also advised another inventor on patentability analysis, application drafting and securing the grant that funded the process — likewise filed and published. And I took part in the Munich Global Impact Sprint (Batch #3).
+
+Asset-light model, European structure, Latin American execution. If you work in educational technology, digital health or the bioeconomy between Europe and Latin America, get in touch: leonardo@ledelab.group</pre></div>
+
+  <div class="gap">Para completar el perfil hacen falta las <b>fechas de cada experiencia</b> (§5) y decidir si
+  se listan las nueve entidades o solo LedeLab Group con las demás como proyectos dentro. Nueve puestos
+  simultáneos en LinkedIn se leen como ruido; recomiendo listar LedeLab Group OÜ, I+DE SAS y Grupo
+  Protemad, y mencionar el resto dentro de la descripción.</div>
+</div>
+
+<!-- WEB -->
+<div class="card" id="p-web">
+  <h3>delahozborrego.com</h3>
+  <p>Página «Sobre mí». Aquí va la <b>bio larga</b> de <a href="#bios">§2</a> completa, en ES y EN. Debajo,
+  el bloque corto para la portada.</p>
+
+  <div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> Web · Portada (hero)</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Leonardo De La Hoz Borrego
+
+Tecnología educativa, IA conversacional y empresas que se sostienen solas.
+Entre Barranquilla y Tallinn.
+
+MA Tecnología Educativa, Universidad de Tartu · MBA Transición Sostenible, Bologna Business School · Fundador de LedeLab Group OÜ · e-Resident de Estonia</pre></div>
+
+  <div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> Web · Hero</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>Leonardo De La Hoz Borrego
+
+Educational technology, conversational AI, and ventures that pay for themselves.
+Between Barranquilla and Tallinn.
+
+MA Educational Technology, University of Tartu · MBA Sustainability Transition Management, Bologna Business School · Founder, LedeLab Group OÜ · Estonian e-Resident</pre></div>
+
+  <div class="blk"><div class="blk-head"><span class="blk-title">Web · Meta description (SEO, ≤160 car.)</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Leonardo De La Hoz Borrego — educational technologist and founder of LedeLab Group OÜ. Conversational AI, bioprotection and media between Estonia and Latin America.</pre></div>
+</div>
+
+<!-- X -->
+<div class="card" id="p-x">
+  <h3>X — @leodelahozb <span class="tag t-gap">contenido sin verificar</span></h3>
+  <p>Bio máx. 160 caracteres · Nombre máx. 50 · Ubicación máx. 30.</p>
+
+  <div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> X · Bio</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Tecnología educativa e IA conversacional. Fundador de LedeLab Group OÜ. MA U. Tartu, MBA BBS. Barranquilla ↔ Tallinn. e-Resident 🇪🇪</pre></div>
+
+  <div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> X · Bio</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>EdTech &amp; conversational AI. Founder of LedeLab Group OÜ. MA Univ. of Tartu, MBA BBS. Barranquilla ↔ Tallinn. Estonian e-Resident 🇪🇪</pre></div>
+
+  <div class="blk"><div class="blk-head"><span class="blk-title">X · Nombre y ubicación</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Nombre: Leonardo De La Hoz Borrego
+Ubicación: Barranquilla ↔ Tallinn
+Web: https://delahozborrego.com</pre></div>
+
+  <div class="gap">No pude ver el contenido actual de @leodelahozb sin sesión iniciada. Necesito saber:
+  ¿qué dice la bio hoy? ¿el nombre visible coincide? ¿la cuenta está activa o dormida? He escrito
+  «LedeLab Group OÜ» en texto plano en vez de una @ porque <b>no sé si existe una cuenta @LedeLab en X</b>;
+  una arroba que no resuelve queda fatal. Si la cuenta existe, dime el handle y lo cambio.</div>
+</div>
+
+<!-- FACEBOOK -->
+<div class="card" id="p-fb">
+  <h3>Facebook — leonardodelahozb <span class="tag t-gap">contenido sin verificar</span></h3>
+  <p>Bio/Intro máx. 101 caracteres. Facebook aquí funciona como perfil personal-profesional.</p>
+
+  <div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> Facebook · Intro</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Tecnología educativa e IA. Fundador de LedeLab Group OÜ. Barranquilla ↔ Tallinn.</pre></div>
+
+  <div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> Facebook · Intro</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>EdTech &amp; AI. Founder of LedeLab Group OÜ. Barranquilla ↔ Tallinn.</pre></div>
+
+  <div class="blk"><div class="blk-head"><span class="blk-title">Facebook · Detalles (campos estructurados)</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Trabajo: Fundador — LedeLab Group OÜ (Tallinn)
+Estudios: University of Tartu — MA Educational Technology
+          Bologna Business School — MBA Sustainability Transition Management
+Ciudad actual: Tallinn, Estonia
+Ciudad de origen: Barranquilla, Colombia
+Sitio web: delahozborrego.com</pre></div>
+
+  <div class="gap">Sin verificar: qué hay publicado hoy y si el perfil está configurado como personal o
+  como página. Tampoco sé si quieres que Facebook sea profesional o quede como espacio personal — eso
+  cambia por completo el texto. Dime cuál de las dos cosas es.</div>
+</div>
+
+<!-- INSTAGRAM -->
+<div class="card" id="p-ig">
+  <h3>Instagram <span class="tag t-gap">handle y contenido sin verificar</span></h3>
+  <p>Bio máx. 150 caracteres, saltos de línea permitidos. Un solo enlace.</p>
+
+  <div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> Instagram · Bio</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Tecnología educativa · IA conversacional
+Fundador @ LedeLab Group OÜ 🇪🇪
+Barranquilla ↔ Tallinn
+delahozborrego.com</pre></div>
+
+  <div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> Instagram · Bio</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>Educational technology · Conversational AI
+Founder @ LedeLab Group OÜ 🇪🇪
+Barranquilla ↔ Tallinn
+delahozborrego.com</pre></div>
+
+  <div class="gap">No tengo el <b>handle de Instagram</b>. Tampoco sé si la cuenta es pública o privada,
+  ni si es personal o de marca. Pásame el usuario y me dices para qué la quieres usar.</div>
+</div>
+
+<!-- RESEARCHGATE -->
+<div class="card" id="p-rg">
+  <h3>ResearchGate <span class="tag t-warn">desactualizado</span></h3>
+  <p>researchgate.net/profile/Leonardo-De-La-Hoz-Borrego · Introducción sin límite práctico. Perfil en inglés.</p>
+
+  <div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> ResearchGate · Introduction</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>I study how designed interventions change what people know and how they behave — and I measure it in real settings rather than laboratories.
+
+My MA thesis at the University of Tartu, "Reflecting on Health and Sustainability: A GPT-powered Intervention to Support Parental Awareness and Family Well-being" (2026), designed and evaluated a generative-AI intervention prompting parents to reflect on family health and sustainability, under the supervision of Liisi Pajula.
+
+I am equally interested in what happens after the research: technology transfer, industrial property, and building ventures that carry results to market. As a beneficiary — across three separate processes — of MinCiencias' national innovation call "Crearlo No Es Suficiente 2.0", I took three inventions through to patent applications filed and published in 2022 before Colombia's Superintendency of Industry and Commerce, in fields ranging from recycled-copper biocidal treatment for timber to systems for social integration and community entrepreneurship.
+
+Founder of LedeLab Group OÜ (Tallinn). MBA in Sustainability Transition Management, Bologna Business School. Estonian e-Resident.
+
+Open to collaboration on educational technology, generative AI in learning, and health-behaviour interventions between Europe and Latin America.</pre></div>
+
+  <div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> ResearchGate · Introducción (referencia interna)</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Estudio cómo las intervenciones diseñadas cambian lo que la gente sabe y cómo se comporta, y lo mido en contextos reales, no de laboratorio.
+
+Mi tesis de máster en la Universidad de Tartu, «Reflecting on Health and Sustainability: A GPT-powered Intervention to Support Parental Awareness and Family Well-being» (2026), diseñó y evaluó una intervención con IA generativa para provocar reflexión parental sobre salud y sostenibilidad familiar, bajo la supervisión de Liisi Pajula.
+
+Me interesa por igual lo que ocurre después de la investigación: transferencia tecnológica, propiedad industrial y construcción de empresas que llevan los resultados al mercado. Como beneficiario —en tres procesos independientes— de la convocatoria nacional de innovación «Crearlo No Es Suficiente 2.0» de MinCiencias, llevé tres invenciones hasta solicitudes de patente radicadas y publicadas en 2022 ante la Superintendencia de Industria y Comercio, en campos que van del tratamiento biocida con cobre reciclado para madera a los sistemas de integración social y emprendimiento comunitario.
+
+Fundador de LedeLab Group OÜ (Tallinn). MBA en Gestión de la Transición Sostenible, Bologna Business School. e-Resident de Estonia.
+
+Abierto a colaborar en tecnología educativa, IA generativa en el aprendizaje e intervenciones de salud conductual entre Europa y América Latina.</pre></div>
+
+  <div class="blk"><div class="blk-head"><span class="blk-title">ResearchGate · Skills &amp; expertise</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Educational Technology
+Generative AI in Education
+Conversational Agents
+Learning Sciences
+Health Behaviour Change
+Intervention Design and Evaluation
+Sustainability Transitions
+Technology Transfer
+Intellectual Property
+Wood Preservation</pre></div>
+
+  <div class="gap">Antes de subir la tesis a ResearchGate, confirmar la <b>política de depósito de la
+  Universidad de Tartu</b>: normalmente la tesis queda en DSpace con licencia propia y lo correcto es
+  enlazarla, no subir el PDF. Enlazar siempre es seguro; subir depende de la licencia.</div>
+</div>
+
+<!-- WOS -->
+<div class="card" id="p-wos">
+  <h3>Web of Science <span class="tag t-warn">perfil mínimo</span></h3>
+  <p>ResearcherID MRJ-2286-2025, alta 14-mar-2025. Perfil en inglés, breve por convención.</p>
+
+  <div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> Web of Science · Biography</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>Educational technologist and researcher. MA in Educational Technology, University of Tartu (2026); MBA in Sustainability Transition Management, Bologna Business School (2021). Research on the design and evaluation of interventions and their effect on attitudes, knowledge and reflection, including generative-AI-supported interventions for parental awareness of family health and sustainability. Also active in technology transfer and industrial property, with three patent applications filed and published in Colombia in 2022 under a MinCiencias national innovation call. Founder of LedeLab Group OÜ, Tallinn, Estonia.
+
+ORCID: 0009-0006-0542-5296</pre></div>
+
+  <div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> Web of Science · Biografía (referencia interna)</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Tecnólogo educativo e investigador. Máster en Tecnología Educativa por la Universidad de Tartu (2026); MBA en Gestión de la Transición Sostenible por Bologna Business School (2021). Investiga el diseño y la evaluación de intervenciones y su efecto sobre actitudes, conocimientos y reflexión, incluyendo intervenciones asistidas por IA generativa para la conciencia parental sobre salud y sostenibilidad familiar. Activo también en transferencia tecnológica y propiedad industrial, con tres solicitudes de patente radicadas y publicadas en Colombia en 2022 en el marco de una convocatoria nacional de MinCiencias. Fundador de LedeLab Group OÜ, Tallinn, Estonia.
+
+ORCID: 0009-0006-0542-5296</pre></div>
+
+  <div class="gap">La conexión <b>WoS ↔ ORCID</b> no se puede hacer hasta que el ORCID esté verificado y
+  con contenido. Es la dependencia dura: ORCID primero, luego el enlace desde Web of Science, y solo
+  entonces las publicaciones fluyen entre ambos.</div>
+</div>
+
+<!-- CRUNCHBASE -->
+<div class="card" id="p-cb">
+  <h3>Crunchbase</h3>
+  <p>crunchbase.com/person/leonardo-de-la-hoz-borrego · Descripción de persona, en inglés. Foco: empresas
+  y financiación, no investigación.</p>
+
+  <div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> Crunchbase · Person description</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>Leonardo De La Hoz Borrego is the founder of LedeLab Group OÜ (Tallinn, Estonia), an asset-light venture holding operating between Estonia and Latin America.
+
+The portfolio spans three lines: conversational AI for behavioural health and education (be360, CamIlA, DelaVent); materials bioprotection through I+DE SAS and ADIMAT, built on Grupo Protemad's antifungal and biocidal-additive R&amp;D since 1994 and currently preparing an EIC Accelerator application; and independent neutral media (CONoticias Neutrales, EENeutral News).
+
+He holds an MA in Educational Technology from the University of Tartu and an MBA in Sustainability Transition Management from Bologna Business School. He was a beneficiary, across three separate processes, of MinCiencias' national innovation call "Crearlo No Es Suficiente 2.0", taking three inventions through to patent applications filed and published in Colombia in 2022, and took part in the Munich Global Impact Sprint (Batch #3, 2022). He also advises other inventors on patentability, patent drafting and public grant acquisition. Estonian e-Resident.</pre></div>
+
+  <div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> Crunchbase · Descripción (referencia interna)</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Leonardo De La Hoz Borrego es fundador de LedeLab Group OÜ (Tallinn, Estonia), un holding de empresas asset-light que opera entre Estonia y América Latina.
+
+El portafolio cubre tres líneas: IA conversacional para salud conductual y educación (be360, CamIlA, DelaVent); bioprotección de materiales a través de I+DE SAS y ADIMAT, apoyada en el I+D de Grupo Protemad en antifúngicos y aditivos biocidas desde 1994 y actualmente preparando su aplicación al EIC Accelerator; y medios independientes de información neutral (CONoticias Neutrales, EENeutral News).
+
+Es Máster en Tecnología Educativa por la Universidad de Tartu y MBA en Gestión de la Transición Sostenible por Bologna Business School. Fue beneficiario, en tres procesos independientes, de la convocatoria nacional de innovación «Crearlo No Es Suficiente 2.0» de MinCiencias, llevando tres invenciones hasta solicitudes de patente radicadas y publicadas en Colombia en 2022, y participó en el Munich Global Impact Sprint (Batch #3, 2022). Asesora además a otros inventores en patentabilidad, redacción de patentes y consecución de subvenciones públicas. e-Resident de Estonia.</pre></div>
+
+  <div class="gap">Crunchbase premia los perfiles de <b>organización</b> enlazados a la persona. Falta decidir
+  si se crean fichas para LedeLab Group OÜ, be360 e I+DE SAS. Y si hay rondas, inversión o revenue
+  publicables, dímelo: es lo único que Crunchbase indexa de verdad.</div>
+</div>
+
+<!-- TORRE -->
+<div class="card" id="p-torre">
+  <h3>Torre</h3>
+  <p>torre.ai/leonardodelahozborrego · Headline + "about" conversacional. Torre es matching de talento:
+  el tono va en primera persona y directo.</p>
+
+  <div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> Torre · Headline + About</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Headline:
+Fundador de LedeLab Group OÜ · Tecnología educativa e IA conversacional · Barranquilla ↔ Tallinn
+
+About:
+Diseño y evalúo intervenciones donde la tecnología tiene que cambiar algo medible: lo que alguien sabe, lo que hace, cómo decide. Máster en Tecnología Educativa por la Universidad de Tartu y MBA en Gestión de la Transición Sostenible por Bologna Business School.
+
+Desde LedeLab Group OÜ (Tallinn) llevo un portafolio asset-light entre Estonia y América Latina: IA conversacional para salud conductual en educación, bioprotección de madera y medios de información neutral. Antes: beneficiario en tres procesos de la convocatoria «Crearlo No Es Suficiente 2.0» de MinCiencias, con tres solicitudes de patente radicadas y publicadas en 2022, y Munich Global Impact Sprint 2022.
+
+También asesoro procesos de propiedad industrial de principio a fin: análisis de patentabilidad, redacción de la solicitud y consecución de la subvención pública que la financia. Lo he hecho tanto para mis propias invenciones como para otro inventor, cuya solicitud quedó radicada y publicada en 2022.
+
+Busco colaboraciones en tecnología educativa, IA aplicada al aprendizaje y salud digital, y proyectos que crucen Europa y América Latina.</pre></div>
+
+  <div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> Torre · Headline + About</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>Headline:
+Founder at LedeLab Group OÜ · Educational technology &amp; conversational AI · Barranquilla ↔ Tallinn
+
+About:
+I design and evaluate interventions where technology has to change something measurable: what someone knows, what they do, how they decide. MA in Educational Technology from the University of Tartu and an MBA in Sustainability Transition Management from Bologna Business School.
+
+Through LedeLab Group OÜ (Tallinn) I run an asset-light portfolio between Estonia and Latin America: conversational AI for behavioural health in education, wood bioprotection, and neutral independent media. Previously: beneficiary across three processes of MinCiencias' "Crearlo No Es Suficiente 2.0" call, with three patent applications filed and published in 2022, and Munich Global Impact Sprint 2022.
+
+I also advise on industrial property end to end: patentability analysis, drafting the application, and securing the public grant that funds it. I have done this both for my own inventions and for another inventor, whose application was filed and published in 2022.
+
+I'm open to collaborations in educational technology, AI applied to learning, digital health, and projects that bridge Europe and Latin America.</pre></div>
+</div>
+
+<!-- GEN -->
+<div class="card" id="p-gen">
+  <h3>GEN — Global Entrepreneurship Network</h3>
+  <p>genglobal.org/user/ledelab · Perfil de miembro, en inglés. Enfoque: ecosistema emprendedor.</p>
+
+  <div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> GEN · Member bio</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>Founder of LedeLab Group OÜ (Tallinn, Estonia), an asset-light venture portfolio built deliberately across two ecosystems: European corporate and digital infrastructure, Latin American execution and market.
+
+The ventures: be360, behavioural health through conversational AI in educational settings; CamIlA and DelaVent, modular conversational agents; I+DE SAS and ADIMAT, wood bioprotection grounded in Grupo Protemad's antifungal R&amp;D since 1994; and two neutral news outlets, CONoticias Neutrales and EENeutral News.
+
+Background: MA in Educational Technology (University of Tartu), MBA in Sustainability Transition Management (Bologna Business School). Beneficiary, across three separate processes, of MinCiencias' national innovation call "Crearlo No Es Suficiente 2.0", with three patent applications filed and published in Colombia in 2022. Munich Global Impact Sprint, Batch #3 (2022). Estonian e-Resident.
+
+Interested in cross-border entrepreneurship between Europe and Latin America, technology transfer from research to market, and AI in education and health.</pre></div>
+
+  <div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> GEN · Bio de miembro (referencia interna)</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Fundador de LedeLab Group OÜ (Tallinn, Estonia), un portafolio de empresas asset-light construido deliberadamente sobre dos ecosistemas: infraestructura societaria y digital europea, ejecución y mercado latinoamericanos.
+
+Las empresas: be360, salud conductual con IA conversacional en entornos educativos; CamIlA y DelaVent, agentes conversacionales modulares; I+DE SAS y ADIMAT, bioprotección de madera apoyada en el I+D antifúngico de Grupo Protemad desde 1994; y dos medios de información neutral, CONoticias Neutrales y EENeutral News.
+
+Formación: Máster en Tecnología Educativa (Universidad de Tartu), MBA en Gestión de la Transición Sostenible (Bologna Business School). Beneficiario, en tres procesos independientes, de la convocatoria nacional de innovación «Crearlo No Es Suficiente 2.0» de MinCiencias, con tres solicitudes de patente radicadas y publicadas en Colombia en 2022. Munich Global Impact Sprint, Batch #3 (2022). e-Resident de Estonia.
+
+Me interesa el emprendimiento transfronterizo entre Europa y América Latina, la transferencia de tecnología de la investigación al mercado, y la IA en educación y salud.</pre></div>
+</div>
+
+<!-- F6S -->
+<div class="card" id="p-f6s">
+  <h3>F6S <span class="tag t-gap">URL exacta sin confirmar</span></h3>
+  <p>Perfil de founder + ficha de startup. F6S se usa para aplicar a aceleradoras: el texto tiene que
+  sonar a tracción, no a currículum.</p>
+
+  <div class="blk lang-en"><div class="blk-head"><span class="blk-title"><span class="tag t-en">EN</span> F6S · Founder bio</span><span class="blk-meta"></span><button class="copy">Copy</button></div>
+<pre>Founder of LedeLab Group OÜ (Tallinn, reg. 14513358). I build asset-light ventures between Estonia and Latin America across three lines: conversational AI for behavioural health in education (be360, CamIlA, DelaVent), wood bioprotection (I+DE SAS, ADIMAT — preparing an EIC Accelerator application), and neutral independent media.
+
+MA Educational Technology, University of Tartu — thesis on a GPT-powered intervention for parental health and sustainability awareness. MBA Sustainability Transition Management, Bologna Business School.
+
+Track record: beneficiary across three separate processes of MinCiencias' "Crearlo No Es Suficiente 2.0" national innovation grant, taking three inventions from idea to patent applications filed and published before Colombia's SIC in 2022; Munich Global Impact Sprint, Batch #3 (2022). Estonian e-Resident.
+
+I know the full industrial-property path — patentability, drafting, public grant, filing — and have run it as an advisor for another inventor too, whose application was filed and published in 2022.</pre></div>
+
+  <div class="blk lang-es"><div class="blk-head"><span class="blk-title"><span class="tag t-es">ES</span> F6S · Bio de fundador (referencia interna)</span><span class="blk-meta"></span><button class="copy">Copiar</button></div>
+<pre>Fundador de LedeLab Group OÜ (Tallinn, registro 14513358). Construyo empresas asset-light entre Estonia y América Latina en tres líneas: IA conversacional para salud conductual en educación (be360, CamIlA, DelaVent), bioprotección de madera (I+DE SAS, ADIMAT — preparando aplicación al EIC Accelerator) y medios independientes de información neutral.
+
+MA en Tecnología Educativa, Universidad de Tartu — tesis sobre una intervención basada en GPT para la conciencia parental sobre salud y sostenibilidad. MBA en Gestión de la Transición Sostenible, Bologna Business School.
+
+Trayectoria: beneficiario en tres procesos independientes del grant nacional de innovación «Crearlo No Es Suficiente 2.0» de MinCiencias, llevando tres invenciones desde la idea hasta solicitudes de patente radicadas y publicadas ante la SIC en 2022; Munich Global Impact Sprint, Batch #3 (2022). e-Resident de Estonia.
+
+Sé recorrer el camino completo de propiedad industrial —patentabilidad, redacción, subvención pública, radicación— y lo he hecho también como asesor de otro inventor, con solicitud radicada y publicada en 2022.</pre></div>
+
+  <div class="gap">Las fichas de startup en F6S piden <b>tracción</b>: usuarios, revenue, pilotos, cartas de
+  intención. No tengo ninguno de esos números. Si existen para be360 o I+DE SAS, pásamelos y armo las
+  fichas; si no, el perfil se queda en bio de fundador.</div>
+</div>
+
+<!-- ================= 7. CHECKLIST ================= -->
+<h2 id="checklist">7. Checklist de estado por plataforma</h2>
+<p class="lede no-search">Estado a 6 de agosto de 2026. Actualízalo aquí mismo cada vez que publiques algo.</p>
+
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th>#</th><th>Plataforma</th><th>Estado</th><th>Qué falta hacer</th><th>Bloqueado por</th></tr></thead>
+  <tbody>
+    <tr><td class="prio">1</td><td><b>ORCID</b><br>0009-0006-0542-5296</td>
+        <td><span class="tag t-gap">vacío</span></td>
+        <td>Verificar email; cargar bio, keywords, education, employment, 3 funding y 4 works</td>
+        <td>Email sin verificar (oct-2024)</td></tr>
+    <tr><td class="prio">2</td><td><b>ETIS.ee</b></td>
+        <td><span class="tag t-gap">sin perfil</span></td>
+        <td>Entrar con ID estonio, comprobar si Tartu ya creó registro, reclamar o crear</td>
+        <td>Acceso con ID estonio</td></tr>
+    <tr><td class="prio">3</td><td><b>Web of Science</b><br>MRJ-2286-2025</td>
+        <td><span class="tag t-warn">mínimo</span></td>
+        <td>Añadir biografía y enlazar con ORCID</td>
+        <td>ORCID (#1)</td></tr>
+    <tr><td class="prio">4</td><td><b>LinkedIn</b></td>
+        <td><span class="tag t-warn">desactualizado</span></td>
+        <td>Titular, Acerca de, añadir MA Tartu 2026, revisar experiencias y fechas</td>
+        <td>Fechas de rol (§5)</td></tr>
+    <tr><td class="prio">5</td><td><b>ResearchGate</b></td>
+        <td><span class="tag t-warn">desactualizado</span></td>
+        <td>Introducción, skills, añadir tesis (enlace a DSpace) y las 3 patentes</td>
+        <td>URL DSpace</td></tr>
+    <tr><td class="prio">6</td><td><b>delahozborrego.com</b></td>
+        <td><span class="tag t-warn">revisar</span></td>
+        <td>Hero + bio larga ES/EN, meta description</td>
+        <td>—</td></tr>
+    <tr><td class="prio">7</td><td><b>Crunchbase</b></td>
+        <td><span class="tag t-warn">revisar</span></td>
+        <td>Descripción de persona; decidir si se crean fichas de organización</td>
+        <td>Decisión sobre fichas</td></tr>
+    <tr><td class="prio">8</td><td><b>Torre</b></td>
+        <td><span class="tag t-warn">revisar</span></td>
+        <td>Headline + about; actualizar educación</td>
+        <td>—</td></tr>
+    <tr><td class="prio">9</td><td><b>GEN</b><br>genglobal.org/user/ledelab</td>
+        <td><span class="tag t-warn">revisar</span></td>
+        <td>Bio de miembro</td>
+        <td>—</td></tr>
+    <tr><td class="prio">10</td><td><b>F6S</b></td>
+        <td><span class="tag t-gap">sin verificar</span></td>
+        <td>Localizar URL, bio de fundador, decidir fichas de startup</td>
+        <td>URL + datos de tracción</td></tr>
+    <tr><td class="prio">11</td><td><b>X</b> @leodelahozb</td>
+        <td><span class="tag t-gap">sin verificar</span></td>
+        <td>Ver contenido actual; bio, nombre, ubicación, enlace</td>
+        <td>Acceso con sesión iniciada</td></tr>
+    <tr><td class="prio">12</td><td><b>Facebook</b><br>leonardodelahozb</td>
+        <td><span class="tag t-gap">sin verificar</span></td>
+        <td>Decidir personal vs. profesional; intro y detalles</td>
+        <td>Acceso + decisión de uso</td></tr>
+    <tr><td class="prio">13</td><td><b>Instagram</b></td>
+        <td><span class="tag t-gap">sin verificar</span></td>
+        <td>Confirmar handle; bio</td>
+        <td>Handle desconocido</td></tr>
+    <tr><td class="prio">14</td><td><b>Padlet</b></td>
+        <td><span class="tag t-gap">sin verificar</span></td>
+        <td>Localizar URL y decidir si entra en el circuito público</td>
+        <td>URL desconocida</td></tr>
+    <tr><td class="prio">—</td><td><b>EUAS</b> (Mainor)</td>
+        <td><span class="tag t-warn">conversación abierta</span></td>
+        <td>Seguimiento con Ly Hõbe (Vice-Rectora) y Julia Rosend</td>
+        <td>Un ETIS vivo ayuda aquí</td></tr>
+    <tr><td class="prio">—</td><td><b>SIC</b> (Colombia)</td>
+        <td><span class="tag t-gap">acción legal</span></td>
+        <td>Consultar estado de NC2022/0007610 y decidir si se recurre algo de las dos negadas</td>
+        <td>Decisión tuya</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ================= 8. HUECOS ================= -->
+<h2 id="huecos">8. Todo lo que falta — resumen</h2>
+<p class="lede no-search">Lista consolidada de lo que depende de ti. Ordenada por cuánto desbloquea.</p>
+
+<div class="card">
+  <h3>Bloquean varias plataformas a la vez</h3>
+  <ul class="tight">
+    <li><b>Verificación del email de ORCID.</b> Bloquea ORCID, el enlace con Web of Science y, en la
+    práctica, cualquier presencia académica indexada. Si el email institucional de Tartu ya caducó, hay
+    que escribir a soporte de ORCID — no abrir una cuenta nueva.</li>
+    <li><b>Decidir el tratamiento público de las patentes</b> (§4). Afecta a las 13 plataformas y es lo
+    único que puede envejecer mal si se escribe en presente.</li>
+    <li><b>Título de NC2022/0007610</b> y su estado actual ante la SIC. Sin el título, esa patente no se
+    puede citar ni cargar en ORCID.</li>
+    <li><b>Bachelor of Engineering</b>: institución, ciudad, especialidad, años. Campo obligatorio en
+    varias plataformas.</li>
+    <li><b>Roles y fechas por empresa</b> (§5). Sin esto, LinkedIn, Crunchbase, Torre y F6S quedan
+    incompletos.</li>
+    <li><b>URL DSpace de la tesis</b>. Es lo que la hace citable y enlazable desde ORCID.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Necesito que me lo digas o que lo mires tú</h3>
+  <ul class="tight">
+    <li><b>X (@leodelahozb)</b>: bio actual, nombre visible, si está activa. Y si existe una cuenta de
+    LedeLab en X, para poder poner la @ en vez del nombre en texto.</li>
+    <li><b>Facebook (leonardodelahozb)</b>: qué hay publicado y si lo quieres profesional o personal.</li>
+    <li><b>Instagram</b>: el handle, para empezar.</li>
+    <li><b>F6S y Padlet</b>: las URLs exactas.</li>
+    <li><b>Título completo de NC2022/0012133</b> (la asesoría a Oscar): en el correo siempre sale
+    truncado como «REMOVEDOR DE…».</li>
+    <li><b>Rol de Oscar Mauricio Vargas Bayona en I+DE SAS</b>: escribe desde
+    <code>gerencia@imasde.co</code>. Si es socio o gerente, esa asesoría deja de ser "a un tercero" y
+    pasa a ser estrategia de PI de tu propio grupo — se redacta distinto.</li>
+    <li><b>Membresía CCCS</b>: ¿se completó el proceso iniciado en 2023?</li>
+    <li><b>Otros outputs académicos</b> además de la tesis: ponencias, capítulos, informes, preprints.</li>
+    <li><b>Otros grants</b>: el barrido de correo solo encontró Crearlo 2.0. Si sospechas de alguno,
+    dame el nombre de la convocatoria o un periodo acotado.</li>
+  </ul>
+  <p style="margin:10px 0 0;font-size:13.5px;color:var(--muted)">Si prefieres, abre sesión en el navegador
+  y reviso yo los tres perfiles sociales de una pasada.</p>
+</div>
+
+<div class="card">
+  <h3>Decisiones, no datos</h3>
+  <ul class="tight">
+    <li><b>Forma canónica del nombre</b> para las 13 plataformas (público vs. legal).</li>
+    <li><b>Teléfono público</b>: sí o no.</li>
+    <li><b>Niveles de idiomas</b> y si se declaran alemán, italiano y estonio.</li>
+    <li><b>Jerarquía pública</b> de las empresas: ¿ADIMAT e I+DE SAS son marcas o entidades separadas?</li>
+    <li><b>Cuántas experiencias listar en LinkedIn</b>: nueve entidades se leen como ruido. Recomiendo
+    tres puestos y el resto dentro de las descripciones.</li>
+    <li><b>Fichas de organización en Crunchbase</b>: ¿se crean o no?</li>
+  </ul>
+</div>
+
+<footer>
+  <p><b>perfil.html</b> — archivo único, editado en sitio y con control de versión en git
+  (repo <code>ledelab2030/leodelahoz</code>). Sin copias sueltas, sin Notion, sin Drive.<br>
+  Última actualización: 6 de agosto de 2026 · Corrección de patentes (3 procesos, 2 negadas), registro de
+  NC2022/0012133 como asesoría a tercero, y retirada del paper de Barranquilla — todo tras verificación
+  en leonardo@ledelab.group.</p>
+</footer>
+
+</main>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  document.querySelectorAll(".blk").forEach(function(blk){
+    var pre = blk.querySelector("pre");
+    var meta = blk.querySelector(".blk-meta");
+    if(!pre || !meta) return;
+    var txt = pre.textContent.trim();
+    var words = txt ? txt.split(/\s+/).length : 0;
+    meta.textContent = words + " pal · " + txt.length + " car";
+  });
+
+  document.addEventListener("click", function(e){
+    var btn = e.target.closest(".copy");
+    if(!btn) return;
+    var pre = btn.closest(".blk").querySelector("pre");
+    var text = pre.textContent;
+    var original = btn.textContent;
+
+    var done = function(ok){
+      btn.textContent = ok ? "✓ Copiado" : "✗ Error";
+      btn.classList.toggle("done", ok);
+      setTimeout(function(){ btn.textContent = original; btn.classList.remove("done"); }, 1600);
+    };
+
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ fallback(); });
+    } else { fallback(); }
+
+    function fallback(){
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.cssText = "position:fixed;top:-9999px;opacity:0";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch(err){ ok = false; }
+      document.body.removeChild(ta);
+      done(ok);
+    }
+  });
+
+  var langBtns = document.querySelectorAll(".langbar button");
+  langBtns.forEach(function(b){
+    b.addEventListener("click", function(){
+      var lang = b.dataset.lang;
+      langBtns.forEach(function(x){ x.classList.toggle("on", x === b); });
+      document.querySelectorAll(".lang-es").forEach(function(el){
+        el.style.display = (lang === "en") ? "none" : "";
+      });
+      document.querySelectorAll(".lang-en").forEach(function(el){
+        el.style.display = (lang === "es") ? "none" : "";
+      });
+      try { localStorage.setItem("perfil-lang", lang); } catch(err){}
+    });
+  });
+  try {
+    var saved = localStorage.getItem("perfil-lang");
+    if(saved){
+      var target = document.querySelector('.langbar button[data-lang="' + saved + '"]');
+      if(target) target.click();
+    }
+  } catch(err){}
+
+  var q = document.getElementById("q");
+  var noresult = document.getElementById("noresult");
+  var units = Array.prototype.slice.call(document.querySelectorAll("main > .card, main > .grid > .card, main > .blk, main > .tbl-scroll, main > .gap, main > .alert, main > h3"));
+
+  q.addEventListener("input", function(){
+    var term = q.value.trim().toLowerCase();
+    if(!term){
+      document.body.classList.remove("searching");
+      units.forEach(function(u){ u.style.display = ""; });
+      document.querySelectorAll("main > .grid").forEach(function(g){ g.style.display = ""; });
+      noresult.style.display = "none";
+      return;
+    }
+    document.body.classList.add("searching");
+    var hits = 0;
+    units.forEach(function(u){
+      var match = u.textContent.toLowerCase().indexOf(term) !== -1;
+      u.style.display = match ? "" : "none";
+      if(match) hits++;
+    });
+    document.querySelectorAll("main > .grid").forEach(function(g){
+      var anyVisible = Array.prototype.some.call(g.children, function(c){ return c.style.display !== "none"; });
+      g.style.display = anyVisible ? "" : "none";
+    });
+    noresult.style.display = hits ? "none" : "block";
+  });
+
+  q.addEventListener("keydown", function(e){
+    if(e.key === "Escape"){ q.value = ""; q.dispatchEvent(new Event("input")); }
+  });
+})();
+</script>
+</body>
+</html>
